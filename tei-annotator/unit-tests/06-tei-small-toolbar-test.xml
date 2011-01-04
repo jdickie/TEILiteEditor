@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <text>&lt;teiHeader&gt;
+        
+        &lt;p&gt;
+        For this test to pass you should only see bold, italic and person items in the TEI annotator toolbar.
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+        Here is a sample of person last names:  Abercrombie, Abraham, Smith and Jones.  You should be able to select
+        these and associate a person with them.
+        &lt;/p&gt;
+        
+        
+        &lt;/teiHeader&gt;
+    </text>
+</root>

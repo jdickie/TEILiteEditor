@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2010 kuberam.ro - Claudius Teodorescu. All rights reserved.
+    Released under LGPL License - http://gnu.org/licenses/lgpl.html.
+-->
+<eXSLTFormsConfigOptions>
+    <eXSLTFormsBaseURI>/rest/db/dma/apps/tei-annotator/utils/exsltforms/</eXSLTFormsBaseURI>
+</eXSLTFormsConfigOptions>

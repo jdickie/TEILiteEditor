@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app-info xmlns="http://code.google.com/p/xrx">
+    <app-id>tei-annotator</app-id>
+    <app-name>TEI Annotator</app-name>
+    <app-version-id>1.0</app-version-id>
+    <app-subversion-revision-number>2682</app-subversion-revision-number>
+    <app-description-text>Add and verify TEI annotations for documents.</app-description-text>
+    <app-creator-text>Dan McCreary</app-creator-text>
+    <app-license-type-code>apache-2.0</app-license-type-code>
+    <app-license-uri>text</app-license-uri>
+    <breadcrumb-label>TEI Annotator</breadcrumb-label>
+    <data-collection>data</data-collection>
+    <app-icon-path>images/annotator-icon.png</app-icon-path>
+    <main-menu-order>12</main-menu-order>
+    <include-in-search-indicator>true</include-in-search-indicator>
+    <doc-root-path>item</doc-root-path>
+    <doc-id-path>id/text()</doc-id-path>
+    <doc-title-path>text</doc-title-path>
+    <list-items-uri>views/list-items.xq</list-items-uri>
+    <doc-viewer-path>views/view-item.xq?id=</doc-viewer-path>
+    <search-order-weight>5</search-order-weight>
+    <app-notes-text>text</app-notes-text>
+    <app-icon-uri>text</app-icon-uri>
+    <app-help-uri>help/index.xhtml</app-help-uri>
+    <include-in-new-indicator>true</include-in-new-indicator>
+    <app-new-uri>text</app-new-uri>
+    <actions>
+        <action>create</action>
+        <action>edit</action>
+        <action>approve-for-publishing</action>
+        <action>delete</action>
+    </actions>
+    <roles>
+        <role>developer</role>
+        <role>editor</role>
+        <role>publisher</role>
+    </roles>
+    <classifier>development</classifier>
+</app-info>

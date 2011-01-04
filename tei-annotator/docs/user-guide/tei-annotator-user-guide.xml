@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.oasis-open.org/docbook/xml/5.0/rng/docbook.rng" type="xml"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <info>
+        <title>TEI Annotator User Guide</title>
+        <author>
+            <personname>
+                <firstname>Dan</firstname>
+                <surname>McCreary</surname>
+            </personname>
+            <email>dan@danmccreary.com</email>
+        </author>
+        <author>
+            <personname>
+                <firstname>Claudius</firstname>
+                <surname>Teodorescu</surname>
+            </personname>
+            <email>claudius.teodorescu@gmail.com</email>
+        </author>
+        <author>
+            <personname>
+                <firstname>Joseph</firstname>
+                <surname>Wicentowski</surname>
+            </personname>
+            <email>joewiz@gmail.com</email>
+        </author>
+        <revhistory>
+            <revision>
+                <revnumber>1</revnumber>
+                <date>2010-05-01</date>
+                <revdescription>
+                    <para>This document was created by Dan McCreary for Dr. Joseph Wicentowski
+                        (under funding from U.S. Department of State, Office of the Historian) for
+                        use in annotating TEI documents with the Office of the Historian's
+                        eXist-based content management system (also created by McCreary). The
+                        JavaScript code for the "tei-ann" CKEditor plugin was created by Claudius
+                        Teodorescu based on his work extending XSLTForms, while McCreary wrote all
+                        other aspects of the application. As stipulated in the Office of the
+                        Historian's original statement of work, all source code and documentation
+                        for the project was to be released to the community when complete. </para>
+                </revdescription>
+            </revision>
+            <revision>
+                <revnumber>2</revnumber>
+                <date>2010-12-29</date>
+                <revdescription>
+                    <para>McCreary converted the document from MS Word into DocBook and expanded it
+                        with additional documentation, for the purpose of sharing with the
+                        University of Maryland Institute for Technology in the Humanities (MITH)
+                        Code Camp Project. Doug Reside, Associate Director was the coordinator of
+                        this project. The new demos were created with much help from Teodorescu.
+                        McCreary also added new sections on background and terminology. Wicentowski
+                        edited the document.</para>
+                </revdescription>
+            </revision>
+        </revhistory>
+    </info>
+    <section>
+        <title>Overview</title>
+        <para>The "TEI Annotator" XRX demonstration and testing application was originally created
+            to fill a gap in the TEI community as there was no adequate browser-based system for
+            editing or annotating TEI documents. Several goals guided this project. Given that
+            different TEI projects have different customizations of the TEI schema and have
+            different software requirements, our goal was to create a system that was configurable
+            for different project's needs. Additionally, because many TEI projects have limited
+            budgets and few technical support staff, it was important to make the configuration
+            possible using simple XML files that do not require extensive JavaScript code. We also
+            hope to build simple web-based interfaces to the XML files to lower the barrier even
+            more. Most of all, we felt it was important to use open W3C standards such as XForms and
+            to find and integrate reliable components such as CKEditor that will be supported in the
+            future. The authors of this software have spent considerable time studying how best to
+            empower non-programmers, and we designed the TEI Annotator with this in mind.</para>
+        <para>This User Guide is designed as a companion to the "TEI Annotator" XRX demonstration
+            and testing application. It was written to help others quickly come up to speed on the
+            overall structure of this XRX application as well as the "tei-ann" CKEditor annotator
+            plugin that it uses to annotate TEI documents. </para>
+    </section>
+    <section>
+        <title>Assumptions</title>
+        <para>This guide assumes the reader is already somewhat familiar with XML and TEI. If you do
+            not have a strong background in these areas it is recommended you search for tutorials
+            on the subjects. We also makes assumptions in the examples about the use of XForms for
+            testing the tei-ann component. Our goal is to minimize the requirements to understand
+            XForms other than to setup basic test programs for loading and saving TEI content. If
+            you are not familiar with XForms we suggest the <link xlink:href="http://en.wikibooks.org/wiki/XForms">XForms Tutorial and
+            Cookbook</link>. You may specifically want to view the examples that use the <link xlink:href="http://en.wikibooks.org/wiki/XForms/Textarea">textarea</link> example.
+            If you would like to do full round-trip Create, Read, Update and Deletes of TEI data we
+            also recommend the Beginner's Guide to XRX.</para>
+        <para>To use this guide we strongly recommend using a native XML database such as eXist and
+            an XML editing tool such as the oXygen XML editor. These tools are not required but will
+            make your development much easier.</para>
+    </section>
+    <section>
+        <title>Terminology</title>
+        <para>The TEI-Annotator web application is a testing and demonstration application of the
+            TEI annotator (tei-ann) plugin of the <link xlink:href="http://ckeditor.com/">CKEditor</link>. This application is designated to demonstrate the many features
+            and functions of the tei-ann plugin. In this document we use the following terms: <itemizedlist>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">XForms</emphasis> - a W3C standard for allowing users
+                        to design web forms without the need for JavaScript. XForms is a general
+                        specification of the semantics of XML tags used in the web application
+                        development process, not a single software package.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">XSLTForms</emphasis> - an implementation of the XForms
+                        package that allows simple XML to be loaded into the web browser as a
+                        model.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">eXSLTForms</emphasis> - a set of extensions to the
+                        XSLTForms package written by Teodorescu that allows for custom user
+                        interface controls such as rich text browsers.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">textarea</emphasis> - a region of a web page used for
+                        editing large multi-line blocks of text. This system uses the XForms
+                        textarea component to perform in-line editing of TEI elements.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">CKEditor</emphasis> - a JavaScript library that allows
+                        users to perform rich-text editing within a web browser. eXSLTForms binds
+                        CKEditor to a XForms text area. CKEditor has been around for a long time and
+                        has a large and active open source community behind it. CKEditor also has a
+                        very robust plugin architecture that made it the ideal choice for this
+                        project.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">tei-ann</emphasis> - the name of the CKEditor plugin
+                        that does the actual TEI annotations. tei-ann is composed of a set of "TEI
+                        Annotators" that can be conditionally added to the tei-ann toolbar.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">TEI Annotator</emphasis> - the component of tei-ann
+                        that performs a specific annotation function on the text. There is usually
+                        one annotator per TEI element such as person. The number of annotators used
+                        in a given context will be determined by the rule you set up in your
+                        application.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">TEI Annotator Panels</emphasis> - These are small
+                        dialog screens that pop up within your web browser when some annotators are
+                        selected. For example if you select a person annotator the Person Dialog
+                        Panel may allow you to select from a list of known persons for each
+                        document.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">TEI Annotator XRX Application</emphasis> - The XRX
+                        application used to test the tei-ann functions. This includes the viewers,
+                        reports and the unit testing tools as well as this User Guide. Note the
+                        tei-ann CKEditor plugin does not require this to run. It is only used in the
+                        development and testing process.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">SCAYT</emphasis> - Spell Check As You Type. The option
+                        of CKEditor that enables spell checking as new text is entered into a
+                        textarea. Many of the configuration options reference this term.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">Encoded XML</emphasis> - Because web browsers are
+                        parsing all incoming HTML tags, we take special precautions to prevent the
+                        browser parser from treating any TEI content as part of the web page. The
+                        way we do this is to encode all of the elements using standard XML escape
+                        characters for angle brackets (e.g. instead of "&lt;" we use an "&amp;lt;").
+                        This encoding process makes the files very difficult for humans to read, but
+                        it is the only way we can load text into CKEditor. It is also difficult to
+                        encode these examples within DocBook.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    <section>
+        <title>Roles in TEI Annotator Project</title>
+        <para>This guide attempts to address several distinct roles in a TEI annotation project.  Some of the following roles might include:
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">TEI Annotator End Users</emphasis> - Individuals who
+                        will be adding annotations to the actual TEI documents. Our goal is to
+                        shield these users from the complexities of the system.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">TEI Web Site Administrators</emphasis> - Individuals
+                        who will set up the TEI web site. These users will need to be able to setup
+                        a system such as eXist and install the TEI Annotator XRX application and
+                        configure the TEI annotator toolbars to meet site-specific annotation
+                        functions. These uses will need to be able to edit the TEI Annotator XML
+                        configuration files but should not be required to understand JavaScript,
+                        although in some cases the editing of JSON files will be needed. Our goal is
+                        to eventually allow these users to configure the site using only
+                        XForms.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">TEI Annotator Developer</emphasis> - These are
+                        experienced HTML and JavaScript developers who build or extend the
+                        individual TEI annotator components. Much of this can be done by adding new
+                        XML content to the Annotator-Specification file however, knowledge of HTML
+                        forms is needed to create custom model panels.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    <section>
+        <title>TEI-Annotator XRX Application Structure</title>
+        <para>The TEI-Annotator XRX application has several directories and files the following is a summary:<itemizedlist>
+                <listitem>
+                    <para>utils - This contains the software components that are used together to
+                        make the tei-ann work.</para>
+                </listitem>
+                <listitem>
+                    <para>utils/xsltforms - The XSLTForms package.</para>
+                </listitem>
+                <listitem>
+                    <para>utils/ckeditor - The CKEditor package.</para>
+                </listitem>
+                <listitem>
+                    <para>utils/exsltforms - The eXSLTForms package. This package allows you to bind
+                        the CKEditor to the XForms textarea.</para>
+                </listitem>
+                <listitem>
+                    <para>unit-tests - A series of unit tests.</para>
+                </listitem>
+                <listitem>
+                    <para>views - Transforms of the tei-ann configuration files.</para>
+                </listitem>
+                <listitem>
+                    <para>edit - Tools that will edit the data sets including save and update
+                        functions for both configuration files and sample TEI documents.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    <section>
+        <title>tei-ann Structure</title>
+        <para>Within the TEI Annotator is an instance of the tei-ann CKEditor plugin. The following
+            are the critical directories and files in this plugin: <itemizedlist>
+                <listitem>
+                    <para>utils/ckeditor - The CKEditor package.</para>
+                </listitem>
+                <listitem>
+                    <para>utils/ckeditor/plugins - The CKEditor plugins directory.</para>
+                </listitem>
+                <listitem>
+                    <para>utils/ckeditor/plugins/tei-ann - The tei-ann plugin directory.</para>
+                </listitem>
+                <listitem>
+                    <para>utils/ckeditor/plugins/tei-ann/config - The tei-ann plugin configuration
+                        directory.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <link xlink:href="../../utils/ckeditor/plugins/tei-ann/config/Annotator-Specifications.xml">utils/ckeditor/plugins/tei-ann/config/Annotator-Specifications.xml</link>
+                        - The tei-ann plugin configuration file.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <link xlink:href="../../utils/ckeditor/plugins/tei-ann/config/generalConfigOptions.xml">utils/ckeditor/plugins/tei-ann/config/generalConfigOptions.xml</link> -
+                        General configuration options including where to load the specification file
+                        and the CSS file.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <link xlink:href="../../utils/ckeditor/plugins/tei-ann/config/lang/en.xml">utils/ckeditor/plugins/tei-ann/config/lang/en.xml</link> - A file of
+                        English Language labels used when you hover over the buttons.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+    <section>
+        <title>Overview of XForms textarea</title>
+        <para>The following is an example of a typical XForms file:</para>
+        <programlisting><![CDATA[
+<html 
+   xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:xf="http://www.w3.org/2002/xforms">
+   <head>
+      <title>XForms textarea</title>
+      <xf:model>
+         <xf:instance xmlns="">
+            <data>
+               <MyTextElement>Hello World!</MyTextElement>
+            </data>
+         </xf:instance>
+      </xf:model>
+   </head>
+   <body>
+      <xf:textarea ref="MyTextElement">
+         <xf:label>My Text:</xf:label>
+      </xf:textarea>
+   </body>
+</html>
+]]></programlisting>
+        <para>Note that the model includes an instance of an XML document. In the example above, the
+            instance is in the null namespace. Within this instance is a root data element, and then
+            an element called MyTextElement. This is the actual XML node that will be edited in the
+            text area. The instance is bound to the textarea using the ref attribute. </para>
+        <para>The standard XForms textarea is customized by adding attributes to the textarea element and additional
+            content within the textarea body, usually following the label. The following is an example of this:</para>
+        <programlisting><![CDATA[
+<xf:textarea ref="MyTextElement" myCustomAttribute="myCustomValue">
+   <xf:label>TEI Content:</xf:label>
+   ... add custom attributes here...
+</xf:textarea>
+]]></programlisting>
+        <para>This is the key structure that we will be manipulating in the following
+            examples.</para>
+    </section>
+    <section>
+        <title>Overview of tei-ann CKEditor plugin</title>
+        <para>Because the CKEditor plugin operates on HTML text, the <emphasis role="bold">tei-ann</emphasis> CKEditor plugin transforms the text between its source TEI form
+            into HTML elements.  For example, the TEI &lt;persName corresp="#HAK"&gt; element is
+            transformed into the HTML &lt;span class="persName" corresp="#HAK"&gt;.  The conversion is
+            round-trippable and lossless.  Even when viewing the HTML form of the data, a user can
+            easily recognize TEI elements already presented in text and annotate the text using new
+            TEI elements.  The plugin can be easily extended in order to use new TEI elements. </para>
+    </section>
+    <section>
+        <title>Customizing the textarea</title>
+        <para>In the above example <emphasis role="bold">ref</emphasis> is a XPath expression to the
+        element within the model that holds the TEI text to be annotated. The label in the screen label for on the screen.  The following changes need to be made to your XForms to use the TEI annotator.</para>
+        <programlisting><![CDATA[
+<xf:textarea ref="myTEItext" appearance="exfk:CKEditor">
+   <xf:label>TEI Content:</xf:label>
+   <xf:extension>
+       <exfk:rteOptions>
+          {
+             skin:'office2003',
+             width: 1000,
+             height: 300,
+             extraPlugins : 'tei-ann',
+             toolbar: [[ 'teiannBoldBtn','teiannPersonBtn']]
+            }
+         </exfk:rteOptions>
+     </xf:extension>
+</xf:textarea>
+]]></programlisting>
+        <para>What the above is indicating is that the textarea includes an extension.  This
+            extension has several options for the Rich Text Editor (exfk:rteOptions).  In this case
+            the options include the skin and layout of the CKEditor (one of several rich-text
+            editors that can be added to XForms), and it also instructs the CKEditor to load an
+            extra plugin which is the TEI editor.  This plugin also allows you to specify the
+            tei-ann toolbar additions, for example, for Bold Text and Person.</para>
+    </section>
+    <section>
+        <title>Customizing the tei-ann Toolbar</title>
+        <para>The TEI Annotator toolbar can be customized by adding structures to the JSON
+            structures within the toolbar elements within the textarea of the XForms application.  A
+            complete list of all the annotators available in your configuration can be found by
+            running the <link xlink:href="../../views/list-annotators.xq">list-annotators.xq</link> script
+            in the views collection.</para>
+        <para>The following is a full listing of the TEI Annotators in the current demo system:</para>
+        <programlisting><![CDATA[  
+[['teiannBoldBtn', 'teiannCellBtn', 'teiannDateBtn', 'teiannEditEntityBtn',
+'teiannGeoLocationBtn', 'teiannGlossaryBtn', 'teiannHeadBtn', 'teiannHyperlinkBtn',
+'teiannItalicBtn', 'teiannItemBtn', 'teiannLineBreakBtn', 'teiannListBtn', 
+'teiannPageBreakBtn', 'teiannParagraphBtn', 'teiannPersonBtn', 'teiannRemoveEntityBtn',
+'teiannRoleBtn', 'teiannStrikethroughBtn', 'teiannTableBtn', 'teiannUnderlineBtn',
+'Source' ]] 
+]]></programlisting>
+        <para>Note that you must put two square brackets around this list.  The last line also adds the "View Source" button to
+        allow users to see the source code view of the HTML encoded TEI tags.</para>
+    </section>
+    <section>
+        <title>Customizing the Rich Text Editing Component</title>
+        <para>There are several options of the overall CKEditor configuration options that you may
+            want to consider when enabling textarea editing. These can be added directly to the JSON
+            components within the textarea.<itemizedlist>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">toolbarCanCollapse</emphasis> (true, false) - This
+                        tell the toolbar if it can be "collapsed" to save screen area. If set to
+                        true a small upward pointing triangle icon will be visible to the right of
+                        the toolbar. Selecting this will collapse the toolbar. This option is
+                        important when you have a large toolbar and your users just want a large
+                        text area but do not need the toolbar buttons. Note that control and
+                        function keys can always be used, even if the toolbar is not visible. The
+                        toolbar can always be expanded.</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">entities</emphasis>: (true, false) - This tells the
+                        toolbar if entities can be edited. (TODO - need more info)</para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">scayt_autoStartup</emphasis> :(true, false) - Tells
+                        the system if the Spell-Check-As-You-Type (SCAYT) should scan all the text
+                        on startup. The default value is true.. </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis role="bold">disableNativeSpellChecker</emphasis>:(true, false) -
+                        Indicates if the in-browser spell check should be enabled or not. The
+                        default value is false so by default spell checking is enabled.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>Unfortunately the CKEditor documentation, although auto-generated from the JavaScript
+            source, is not very helpful. Some additional hints may be gleaned from the <link xlink:href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html">CKEditor JavaScript API</link>.</para>
+    </section>
+    <section>
+        <title>Typical TEI Annotation Project Tasks</title>
+        <para> The following is a list of typical project steps used in a TEI annotation project and
+            how these tools might fit into this project.<orderedlist>
+                <listitem>
+                    <para>Download the eXist native XML database</para>
+                </listitem>
+                <listitem>
+                    <para>Load the TEI Annotator XRX application </para>
+                </listitem>
+                <listitem>
+                    <para>Run the unit tests to make sure all the configuration files are setup
+                        correctly</para>
+                </listitem>
+                <listitem>
+                    <para>Customize the style module to include your site-wide header and
+                        footers</para>
+                </listitem>
+                <listitem>
+                    <para>Customize the site-wide style.css CSS style sheet</para>
+                </listitem>
+                <listitem>
+                    <para>Load your TEI data into a data collection for example
+                        /db/project/apps/tei/data</para>
+                </listitem>
+                <listitem>
+                    <para>Write an XQuery program that lists the TEI documents in your collection
+                        and another that lists all the items you want to edit in the
+                        document.</para>
+                </listitem>
+                <listitem>
+                    <para>View the TEI documents and adds an "Edit" button to the structures you
+                        want to edit such as divs or paragraphs</para>
+                </listitem>
+                <listitem>
+                    <para>Pass the paragraph or div ID to an XQuery that generates an XForm that
+                        edits the paragraph</para>
+                </listitem>
+                <listitem>
+                    <para>Connect a "Save" button to a script that takes the HTTP POST data and
+                        stores it in your database</para>
+                </listitem>
+            </orderedlist>
+        </para>
+    </section>
+    <section>
+        <title/>
+        <para/>
+    </section>
+</article>

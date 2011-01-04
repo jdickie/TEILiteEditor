@@ -1,0 +1,35 @@
+/*
+Copyright (C) 2010 kuberam.ro - Claudius Teodorescu
+Contact at : claud108@yahoo.com
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+	
+*/
+#dataInstancesViewerContainer {position:absolute;top:10px;right:10px;z-index:1000;width:710px;background-color:#ffffff;}
+#modelsSelectDiv {float:left;width:200px;height:60px;margin-left:20px;padding-top:20px;}
+#instancesDiv {float:left;width:200px;height:60px;padding-top:20px;}
+#refreshButtonDiv {float:right;width:200px;height:60px;padding-top:20px;text-align:right;margin-right:20px;}
+#showViewerButtonDiv {float:right;width:360px;height:35px;font:bold 14px verdana;}
+#showViewerButton {float:right;margin:7px 10px 0 0;font-weight:bold;}
+#dataInstancesViewerDiv {float:right;width:702px;height:420px;border:2px solid black;display:none;}
+#hiddenInstancesSelectDiv select {width:0px;height:0px;display:none;}
+#showDataInstanceDiv {float:left;width:700px;height:300px;border-top:2px black solid;border-bottom:2px black solid;overflow:scroll;padding-bottom:20px;}
+ul {float:left;list-style:none;}
+
+/* use these classes to customize the rendering of instance data */
+.elementName {font:bold 14px verdana;color:#420ca1;}
+.elementValue {font:bold 14px verdana;color:#df0174;} /*not working for Chrome and IE*/
+.attributeName {font:bold 14px verdana;color:#088a08;margin-left:5px;}
+.attributeValue {font:14px verdana;color:#8a0808;}

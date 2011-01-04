@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <text>&lt;teiHeader&gt;
+        
+        &lt;p&gt;
+        Toolbar Annotators can be grouped together baseds on logical functionality.  For this test to pass you should see the toolbar grouped into three seperate regions.  One for Bold and Italic, one for Date and Person and one for Source.
+        &lt;/p&gt;
+        &lt;/teiHeader&gt;
+    </text>
+</root>

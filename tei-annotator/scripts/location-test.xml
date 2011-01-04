@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results>
+    <entity>location</entity>
+    <type>contains</type>
+    <q>e</q>
+    <items>
+        <item>
+            <value>washington-dc-us</value>
+            <label>Washington DC, USA</label>
+        </item>
+        <item>
+            <value>minneapolis-mn-us</value>
+            <label>Minneapolis MN, USA</label>
+        </item>
+        <item>
+            <value>new-york-ny-usa</value>
+            <label>New York NY, USA</label>
+        </item>
+    </items>
+</results>

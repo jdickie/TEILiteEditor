@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <text>&lt;teiHeader&gt;
+
+        &lt;p&gt;
+        For this test to pass you should see the Bold and Person icon and this text in a textarea below the toolbar.
+        &lt;/p&gt;
+
+&lt;/teiHeader&gt;
+    </text>
+</data>

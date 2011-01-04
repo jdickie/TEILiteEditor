@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../xsl/xsd2UIxml.xsl" type="text/xsl"?>
+<xs:schema xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.tei-c.org/ns/1.0">
+    <xs:element name="TEI">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tei:teiHeader"/>
+                <xs:element ref="tei:text"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="teiHeader">
+        <xs:annotation>
+            <xs:documentation>(TEI Header) supplies the descriptive and declarative information making up an electronic title page
+                prefixed to every TEI-conformant text.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="xs:anyType">
+                    <xs:all/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="text">
+        <xs:annotation>
+            <xs:documentation>contains a single text of any kind, whether unitary or composite, for example a poem or
+                drama, a collection of essays, a novel, a dictionary, or a corpus sample.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="tei:front"/>
+                <xs:element ref="tei:body"/>
+                <xs:element minOccurs="0" ref="tei:back"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="front">
+        <xs:annotation>
+            <xs:documentation>(front matter) contains any prefatory matter (headers,
+                title page, prefaces, dedications, etc.)
+                found  at the start of a document, before the main body.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tei:div" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="body">
+        <xs:annotation>
+            <xs:documentation>(text body) contains the whole body of a single unitary text, excluding any front or back matter.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tei:div" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="back">
+        <xs:annotation>
+            <xs:documentation>(back matter) contains any appendixes, etc. following the main part of a text.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tei:div" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="div">
+        <xs:annotation>
+            <xs:documentation>(text division) contains a subdivision of the front, body, or back of a text.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="p" maxOccurs="unbounded" type="tei:annType"/>
+                <xs:element name="closer" type="tei:annType"/>
+            </xs:sequence>
+            <xs:attribute name="type" default="text" type="xs:Name">
+                <xs:annotation>
+                    <xs:documentation>specifies the kind of document to which the header is attached, for example whether it
+                        is a corpus or individual text.
+                        Sample values include: 1] text; 2] corpus</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="rend">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="strong"/>
+                <xs:enumeration value="italic"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:complexType name="listType">
+        <xs:sequence>
+            <xs:element name="head" minOccurs="0" type="tei:annType"/>
+            <xs:element name="item" minOccurs="1" maxOccurs="unbounded" type="tei:annType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tableType">
+        <xs:sequence>
+            <xs:element name="head" minOccurs="0"/>
+            <xs:element name="row" minOccurs="1" maxOccurs="unbounded" type="tei:rowType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="rowType">
+        <xs:sequence>
+            <xs:element name="cell" minOccurs="1" maxOccurs="unbounded" type="tei:annType"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- this is the annotation data type.  If an element has this type then you should be able to add the annotations.  -->
+    <xs:complexType mixed="true" name="annType">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="date">
+                    <xs:annotation>
+                        <xs:documentation>Dates with the when attribute in XML Schema date
+                                format.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="when" type="xs:date"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="gloss">
+                    <xs:annotation>
+                        <xs:documentation>Glossary Term</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="target" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="hi">
+                    <xs:annotation>
+                        <xs:documentation>hilight (bold, italic, stikeout).</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute ref="tei:rend"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="lb">
+                    <xs:annotation>
+                        <xs:documentation>Line break.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="list" type="tei:listType">
+                    <xs:annotation>
+                        <xs:documentation>List of items.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="note" type="tei:annType">
+                    <xs:annotation>
+                        <xs:documentation>Callout note.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="pb">
+                    <xs:annotation>
+                        <xs:documentation>Page break.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="persName">
+                    <xs:annotation>
+                        <xs:documentation>Names of people.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="corresp" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="placeName">
+                    <xs:annotation>
+                        <xs:documentation>Place Names (Geocodes).</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="key" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="q">
+                    <xs:annotation>
+                        <xs:documentation>Callout quoted text.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="quote">
+                    <xs:annotation>
+                        <xs:documentation>Text in quotes.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="ref">
+                    <xs:annotation>
+                        <xs:documentation>Reference links to other documents or parts of
+                                documents.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="table" type="tei:tableType"/>
+                <xs:element name="time">
+                    <xs:annotation>
+                        <xs:documentation>Time but not date.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

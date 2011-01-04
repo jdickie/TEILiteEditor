@@ -1,0 +1,66 @@
+/* make all of the entities bold */
+
+/* blue is reserved for regular HTML links.  Red is reserved for non-working links that need to be fixed.  */
+
+/* 
+body {
+  font-family:arial, helvetica, sans-serif;    
+}
+*/
+
+a {
+  border: none;
+  text-decoration: none;
+}
+
+img {
+   border: none;
+}
+            
+persName, gloss, placeName, .persName, .gloss, .placeName, .link, link {
+   font-weight: bold;   
+}
+
+/* geo locations are green.  Think green planet earth.  */
+placeName, .placeName {
+  color: green;
+}
+
+placeName:after {
+    content: " (" attr(gid) ")";
+}
+
+/* people are dark red but not too red to be considered a warning of a broken link */
+persName, .persName {
+  color: maroon;
+}
+
+/* people are dark red but not too red to be considered a warning of a broken link */
+.person-unknown {
+  color: red;
+}
+
+persName:after {
+    content: " (" attr(corresp) ")";
+}
+
+/* glossary terms are a deep purple.  */
+gloss, .gloss {
+  color: indigo;
+}
+
+gloss:after {
+   content: " (" attr(gid) ")";
+}
+
+date, .date {
+   color: DarkOrange;    
+}
+
+date:after {
+   content: " (" attr(when) ")";
+}
+
+.link {
+   color: blue;    
+}

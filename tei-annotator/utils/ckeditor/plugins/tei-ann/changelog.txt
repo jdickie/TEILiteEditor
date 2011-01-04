@@ -1,0 +1,9 @@
+Version 1.4.7 - 2010.10.13
+1. Improved documentation.
+
+Version 1.4.6 - 2010.08.05
+1. Added "Edit Entity" command, used to edit entities.
+2. Added "Clear entity" and "Edit Entity" commands as options for editor's context menu, which is available
+by right-click inside text. Thus, there is no need for add "teiannRemoveEntityBtn" in toolbar item of exfk:rteOptions
+element, within the respective page.
+3. "Date" and "Hyperlink"annotators (and all of their type) are now editable.

@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TEI Annotator User Guide</title>
+        <meta name="generator" content="DocBook XSL-NS Stylesheets V1.75.2"/>
+    </head>
+    <body>
+        <div class="article" title="TEI Annotator User Guide">
+            <div class="titlepage">
+                <div>
+                    <div>
+                        <h1 class="title">
+                            <a id="d0e2"/>TEI Annotator User Guide</h1>
+                    </div>
+                    <div>
+                        <div class="author">
+                            <h3 class="author">
+                                <span class="firstname">Dan</span>
+                                <span class="surname">McCreary</span>
+                            </h3>
+                            <code class="email">&lt;<a class="email" href="mailto:dan@danmccreary.com">dan@danmccreary.com</a>&gt;</code>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="author">
+                            <h3 class="author">
+                                <span class="firstname">Claudius</span>
+                                <span class="surname">Teodorescu</span>
+                            </h3>
+                            <code class="email">&lt;<a class="email" href="mailto:claudius.teodorescu@gmail.com">claudius.teodorescu@gmail.com</a>&gt;</code>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="author">
+                            <h3 class="author">
+                                <span class="firstname">Joseph</span>
+                                <span class="surname">Wicentowski</span>
+                            </h3>
+                            <code class="email">&lt;<a class="email" href="mailto:joewiz@gmail.com">joewiz@gmail.com</a>&gt;</code>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="revhistory">
+                            <table border="1" width="100%" summary="Revision history">
+                                <tr>
+                                    <th align="left" valign="top" colspan="2">
+                                        <b>Revision History</b>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td align="left">Revision 1</td>
+                                    <td align="left">2010-05-01</td>
+                                </tr>
+                                <tr>
+                                    <td align="left" colspan="2">
+                                        <p>This document was created by Dan McCreary for Dr. Joseph Wicentowski
+                        (under funding from U.S. Department of State, Office of the Historian) for
+                        use in annotating TEI documents with the Office of the Historian's
+                        eXist-based content management system (also created by McCreary). The
+                        JavaScript code for the "tei-ann" CKEditor plugin was created by Claudius
+                        Teodorescu based on his work extending XSLTForms, while McCreary wrote all
+                        other aspects of the application. As stipulated in the Office of the
+                        Historian's original statement of work, all source code and documentation
+                        for the project was to be released to the community when complete. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">Revision 2</td>
+                                    <td align="left">2010-12-29</td>
+                                </tr>
+                                <tr>
+                                    <td align="left" colspan="2">
+                                        <p>McCreary converted the document from MS Word into DocBook and expanded it
+                        with additional documentation, for the purpose of sharing with the
+                        University of Maryland Institute for Technology in the Humanities (MITH)
+                        Code Camp Project. Doug Reside, Associate Director was the coordinator of
+                        this project. The new demos were created with much help from Teodorescu.
+                        McCreary also added new sections on background and terminology. Wicentowski
+                        edited the document.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+            <div class="toc">
+                <p>
+                    <b>Table of Contents</b>
+                </p>
+                <dl>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e60">Overview</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e67">Assumptions</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e80">Terminology</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e156">Roles in TEI Annotator Project</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e181">TEI-Annotator XRX Application Structure</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e209">tei-ann Structure</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e246">Overview of XForms textarea</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e261">Overview of tei-ann CKEditor plugin</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e269">Customizing the textarea</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e281">Customizing the tei-ann Toolbar</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e295">Customizing the Rich Text Editing Component</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e330">Typical TEI Annotation Project Tasks</a>
+                        </span>
+                    </dt>
+                    <dt>
+                        <span class="section">
+                            <a href="#d0e367"/>
+                        </span>
+                    </dt>
+                </dl>
+            </div>
+            <div class="section" title="Overview">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e60"/>Overview</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>The "TEI Annotator" XRX demonstration and testing application was originally created
+            to fill a gap in the TEI community as there was no adequate browser-based system for
+            editing or annotating TEI documents. Several goals guided this project. Given that
+            different TEI projects have different customizations of the TEI schema and have
+            different software requirements, our goal was to create a system that was configurable
+            for different project's needs. Additionally, because many TEI projects have limited
+            budgets and few technical support staff, it was important to make the configuration
+            possible using simple XML files that do not require extensive JavaScript code. We also
+            hope to build simple web-based interfaces to the XML files to lower the barrier even
+            more. Most of all, we felt it was important to use open W3C standards such as XForms and
+            to find and integrate reliable components such as CKEditor that will be supported in the
+            future. The authors of this software have spent considerable time studying how best to
+            empower non-programmers, and we designed the TEI Annotator with this in mind.</p>
+                <p>This User Guide is designed as a companion to the "TEI Annotator" XRX demonstration
+            and testing application. It was written to help others quickly come up to speed on the
+            overall structure of this XRX application as well as the "tei-ann" CKEditor annotator
+            plugin that it uses to annotate TEI documents. </p>
+            </div>
+            <div class="section" title="Assumptions">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e67"/>Assumptions</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>This guide assumes the reader is already somewhat familiar with XML and TEI. If you do
+            not have a strong background in these areas it is recommended you search for tutorials
+            on the subjects. We also makes assumptions in the examples about the use of XForms for
+            testing the tei-ann component. Our goal is to minimize the requirements to understand
+            XForms other than to setup basic test programs for loading and saving TEI content. If
+            you are not familiar with XForms we suggest the <a class="link" href="http://en.wikibooks.org/wiki/XForms" target="_top">XForms Tutorial and
+            Cookbook</a>. You may specifically want to view the examples that use the <a class="link" href="http://en.wikibooks.org/wiki/XForms/Textarea" target="_top">textarea</a> example.
+            If you would like to do full round-trip Create, Read, Update and Deletes of TEI data we
+            also recommend the Beginner's Guide to XRX.</p>
+                <p>To use this guide we strongly recommend using a native XML database such as eXist and
+            an XML editing tool such as the oXygen XML editor. These tools are not required but will
+            make your development much easier.</p>
+            </div>
+            <div class="section" title="Terminology">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e80"/>Terminology</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>The TEI-Annotator web application is a testing and demonstration application of the
+            TEI annotator (tei-ann) plugin of the <a class="link" href="http://ckeditor.com/" target="_top">CKEditor</a>. This application is designated to demonstrate the many features
+            and functions of the tei-ann plugin. In this document we use the following terms: </p>
+                <div class="itemizedlist">
+                    <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>XForms</strong>
+                                </span> - a W3C standard for allowing users
+                        to design web forms without the need for JavaScript. XForms is a general
+                        specification of the semantics of XML tags used in the web application
+                        development process, not a single software package.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>XSLTForms</strong>
+                                </span> - an implementation of the XForms
+                        package that allows simple XML to be loaded into the web browser as a
+                        model.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>eXSLTForms</strong>
+                                </span> - a set of extensions to the
+                        XSLTForms package written by Teodorescu that allows for custom user
+                        interface controls such as rich text browsers.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>textarea</strong>
+                                </span> - a region of a web page used for
+                        editing large multi-line blocks of text. This system uses the XForms
+                        textarea component to perform in-line editing of TEI elements.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>CKEditor</strong>
+                                </span> - a JavaScript library that allows
+                        users to perform rich-text editing within a web browser. eXSLTForms binds
+                        CKEditor to a XForms text area. CKEditor has been around for a long time and
+                        has a large and active open source community behind it. CKEditor also has a
+                        very robust plugin architecture that made it the ideal choice for this
+                        project.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>tei-ann</strong>
+                                </span> - the name of the CKEditor plugin
+                        that does the actual TEI annotations. tei-ann is composed of a set of "TEI
+                        Annotators" that can be conditionally added to the tei-ann toolbar.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>TEI Annotator</strong>
+                                </span> - the component of tei-ann
+                        that performs a specific annotation function on the text. There is usually
+                        one annotator per TEI element such as person. The number of annotators used
+                        in a given context will be determined by the rule you set up in your
+                        application.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>TEI Annotator Panels</strong>
+                                </span> - These are small
+                        dialog screens that pop up within your web browser when some annotators are
+                        selected. For example if you select a person annotator the Person Dialog
+                        Panel may allow you to select from a list of known persons for each
+                        document.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>TEI Annotator XRX Application</strong>
+                                </span> - The XRX
+                        application used to test the tei-ann functions. This includes the viewers,
+                        reports and the unit testing tools as well as this User Guide. Note the
+                        tei-ann CKEditor plugin does not require this to run. It is only used in the
+                        development and testing process.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>SCAYT</strong>
+                                </span> - Spell Check As You Type. The option
+                        of CKEditor that enables spell checking as new text is entered into a
+                        textarea. Many of the configuration options reference this term.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>Encoded XML</strong>
+                                </span> - Because web browsers are
+                        parsing all incoming HTML tags, we take special precautions to prevent the
+                        browser parser from treating any TEI content as part of the web page. The
+                        way we do this is to encode all of the elements using standard XML escape
+                        characters for angle brackets (e.g. instead of "&lt;" we use an "&amp;lt;").
+                        This encoding process makes the files very difficult for humans to read, but
+                        it is the only way we can load text into CKEditor. It is also difficult to
+                        encode these examples within DocBook.</p>
+                        </li>
+                    </ul>
+                </div>
+                <p>
+        </p>
+            </div>
+            <div class="section" title="Roles in TEI Annotator Project">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e156"/>Roles in TEI Annotator Project</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>This guide attempts to address several distinct roles in a TEI annotation project.  Some of the following roles might include:
+            </p>
+                <div class="itemizedlist">
+                    <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>TEI Annotator End Users</strong>
+                                </span> - Individuals who
+                        will be adding annotations to the actual TEI documents. Our goal is to
+                        shield these users from the complexities of the system.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>TEI Web Site Administrators</strong>
+                                </span> - Individuals
+                        who will set up the TEI web site. These users will need to be able to setup
+                        a system such as eXist and install the TEI Annotator XRX application and
+                        configure the TEI annotator toolbars to meet site-specific annotation
+                        functions. These uses will need to be able to edit the TEI Annotator XML
+                        configuration files but should not be required to understand JavaScript,
+                        although in some cases the editing of JSON files will be needed. Our goal is
+                        to eventually allow these users to configure the site using only
+                        XForms.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>TEI Annotator Developer</strong>
+                                </span> - These are
+                        experienced HTML and JavaScript developers who build or extend the
+                        individual TEI annotator components. Much of this can be done by adding new
+                        XML content to the Annotator-Specification file however, knowledge of HTML
+                        forms is needed to create custom model panels.</p>
+                        </li>
+                    </ul>
+                </div>
+                <p>
+        </p>
+            </div>
+            <div class="section" title="TEI-Annotator XRX Application Structure">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e181"/>TEI-Annotator XRX Application Structure</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>The TEI-Annotator XRX application has several directories and files the following is a summary:</p>
+                <div class="itemizedlist">
+                    <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                            <p>utils - This contains the software components that are used together to
+                        make the tei-ann work.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>utils/xsltforms - The XSLTForms package.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>utils/ckeditor - The CKEditor package.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>utils/exsltforms - The eXSLTForms package. This package allows you to bind
+                        the CKEditor to the XForms textarea.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>unit-tests - A series of unit tests.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>views - Transforms of the tei-ann configuration files.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>edit - Tools that will edit the data sets including save and update
+                        functions for both configuration files and sample TEI documents.</p>
+                        </li>
+                    </ul>
+                </div>
+                <p>
+        </p>
+            </div>
+            <div class="section" title="tei-ann Structure">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e209"/>tei-ann Structure</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>Within the TEI Annotator is an instance of the tei-ann CKEditor plugin. The following
+            are the critical directories and files in this plugin: </p>
+                <div class="itemizedlist">
+                    <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                            <p>utils/ckeditor - The CKEditor package.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>utils/ckeditor/plugins - The CKEditor plugins directory.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>utils/ckeditor/plugins/tei-ann - The tei-ann plugin directory.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>utils/ckeditor/plugins/tei-ann/config - The tei-ann plugin configuration
+                        directory.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <a class="link" href="../../utils/ckeditor/plugins/tei-ann/config/Annotator-Specifications.xml" target="_top">utils/ckeditor/plugins/tei-ann/config/Annotator-Specifications.xml</a>
+                        - The tei-ann plugin configuration file.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <a class="link" href="../../utils/ckeditor/plugins/tei-ann/config/generalConfigOptions.xml" target="_top">utils/ckeditor/plugins/tei-ann/config/generalConfigOptions.xml</a> -
+                        General configuration options including where to load the specification file
+                        and the CSS file.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <a class="link" href="../../utils/ckeditor/plugins/tei-ann/config/lang/en.xml" target="_top">utils/ckeditor/plugins/tei-ann/config/lang/en.xml</a> - A file of
+                        English Language labels used when you hover over the buttons.</p>
+                        </li>
+                    </ul>
+                </div>
+                <p>
+        </p>
+            </div>
+            <div class="section" title="Overview of XForms textarea">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e246"/>Overview of XForms textarea</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>The following is an example of a typical XForms file:</p>
+                <pre class="programlisting">
+&lt;html 
+   xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:xf="http://www.w3.org/2002/xforms"&gt;
+   &lt;head&gt;
+      &lt;title&gt;XForms textarea&lt;/title&gt;
+      &lt;xf:model&gt;
+         &lt;xf:instance xmlns=""&gt;
+            &lt;data&gt;
+               &lt;MyTextElement&gt;Hello World!&lt;/MyTextElement&gt;
+            &lt;/data&gt;
+         &lt;/xf:instance&gt;
+      &lt;/xf:model&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;xf:textarea ref="MyTextElement"&gt;
+         &lt;xf:label&gt;My Text:&lt;/xf:label&gt;
+      &lt;/xf:textarea&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+                <p>Note that the model includes an instance of an XML document. In the example above, the
+            instance is in the null namespace. Within this instance is a root data element, and then
+            an element called MyTextElement. This is the actual XML node that will be edited in the
+            text area. The instance is bound to the textarea using the ref attribute. </p>
+                <p>The standard XForms textarea is customized by adding attributes to the textarea element and additional
+            content within the textarea body, usually following the label. The following is an example of this:</p>
+                <pre class="programlisting">
+&lt;xf:textarea ref="MyTextElement" myCustomAttribute="myCustomValue"&gt;
+   &lt;xf:label&gt;TEI Content:&lt;/xf:label&gt;
+   ... add custom attributes here...
+&lt;/xf:textarea&gt;
+</pre>
+                <p>This is the key structure that we will be manipulating in the following
+            examples.</p>
+            </div>
+            <div class="section" title="Overview of tei-ann CKEditor plugin">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e261"/>Overview of tei-ann CKEditor plugin</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>Because the CKEditor plugin operates on HTML text, the <span class="bold">
+                        <strong>tei-ann</strong>
+                    </span> CKEditor plugin transforms the text between its source TEI form
+            into HTML elements.  For example, the TEI &lt;persName corresp="#HAK"&gt; element is
+            transformed into the HTML &lt;span class="persName" corresp="#HAK"&gt;.  The conversion is
+            round-trippable and lossless.  Even when viewing the HTML form of the data, a user can
+            easily recognize TEI elements already presented in text and annotate the text using new
+            TEI elements.  The plugin can be easily extended in order to use new TEI elements. </p>
+            </div>
+            <div class="section" title="Customizing the textarea">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e269"/>Customizing the textarea</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>In the above example <span class="bold">
+                        <strong>ref</strong>
+                    </span> is a XPath expression to the
+        element within the model that holds the TEI text to be annotated. The label in the screen label for on the screen.  The following changes need to be made to your XForms to use the TEI annotator.</p>
+                <pre class="programlisting">
+&lt;xf:textarea ref="myTEItext" appearance="exfk:CKEditor"&gt;
+   &lt;xf:label&gt;TEI Content:&lt;/xf:label&gt;
+   &lt;xf:extension&gt;
+       &lt;exfk:rteOptions&gt;
+          {
+             skin:'office2003',
+             width: 1000,
+             height: 300,
+             extraPlugins : 'tei-ann',
+             toolbar: [[ 'teiannBoldBtn','teiannPersonBtn']]
+            }
+         &lt;/exfk:rteOptions&gt;
+     &lt;/xf:extension&gt;
+&lt;/xf:textarea&gt;
+</pre>
+                <p>What the above is indicating is that the textarea includes an extension.  This
+            extension has several options for the Rich Text Editor (exfk:rteOptions).  In this case
+            the options include the skin and layout of the CKEditor (one of several rich-text
+            editors that can be added to XForms), and it also instructs the CKEditor to load an
+            extra plugin which is the TEI editor.  This plugin also allows you to specify the
+            tei-ann toolbar additions, for example, for Bold Text and Person.</p>
+            </div>
+            <div class="section" title="Customizing the tei-ann Toolbar">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e281"/>Customizing the tei-ann Toolbar</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>The TEI Annotator toolbar can be customized by adding structures to the JSON
+            structures within the toolbar elements within the textarea of the XForms application.  A
+            complete list of all the annotators available in your configuration can be found by
+            running the <a class="link" href="../../views/list-annotators.xq" target="_top">list-annotators.xq</a> script
+            in the views collection.</p>
+                <p>The following is a full listing of the TEI Annotators in the current demo system:</p>
+                <pre class="programlisting">  
+[['teiannBoldBtn', 'teiannCellBtn', 'teiannDateBtn', 'teiannEditEntityBtn',
+'teiannGeoLocationBtn', 'teiannGlossaryBtn', 'teiannHeadBtn', 'teiannHyperlinkBtn',
+'teiannItalicBtn', 'teiannItemBtn', 'teiannLineBreakBtn', 'teiannListBtn', 
+'teiannPageBreakBtn', 'teiannParagraphBtn', 'teiannPersonBtn', 'teiannRemoveEntityBtn',
+'teiannRoleBtn', 'teiannStrikethroughBtn', 'teiannTableBtn', 'teiannUnderlineBtn',
+'Source' ]] 
+</pre>
+                <p>Note that you must put two square brackets around this list.  The last line also adds the "View Source" button to
+        allow users to see the source code view of the HTML encoded TEI tags.</p>
+            </div>
+            <div class="section" title="Customizing the Rich Text Editing Component">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e295"/>Customizing the Rich Text Editing Component</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>There are several options of the overall CKEditor configuration options that you may
+            want to consider when enabling textarea editing. These can be added directly to the JSON
+            components within the textarea.</p>
+                <div class="itemizedlist">
+                    <ul class="itemizedlist" type="disc">
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>toolbarCanCollapse</strong>
+                                </span> (true, false) - This
+                        tell the toolbar if it can be "collapsed" to save screen area. If set to
+                        true a small upward pointing triangle icon will be visible to the right of
+                        the toolbar. Selecting this will collapse the toolbar. This option is
+                        important when you have a large toolbar and your users just want a large
+                        text area but do not need the toolbar buttons. Note that control and
+                        function keys can always be used, even if the toolbar is not visible. The
+                        toolbar can always be expanded.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>entities</strong>
+                                </span>: (true, false) - This tells the
+                        toolbar if entities can be edited. (TODO - need more info)</p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>scayt_autoStartup</strong>
+                                </span> :(true, false) - Tells
+                        the system if the Spell-Check-As-You-Type (SCAYT) should scan all the text
+                        on startup. The default value is true.. </p>
+                        </li>
+                        <li class="listitem">
+                            <p>
+                                <span class="bold">
+                                    <strong>disableNativeSpellChecker</strong>
+                                </span>:(true, false) -
+                        Indicates if the in-browser spell check should be enabled or not. The
+                        default value is false so by default spell checking is enabled.</p>
+                        </li>
+                    </ul>
+                </div>
+                <p>Unfortunately the CKEditor documentation, although auto-generated from the JavaScript
+            source, is not very helpful. Some additional hints may be gleaned from the <a class="link" href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html" target="_top">CKEditor JavaScript API</a>.</p>
+            </div>
+            <div class="section" title="Typical TEI Annotation Project Tasks">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e330"/>Typical TEI Annotation Project Tasks</h2>
+                        </div>
+                    </div>
+                </div>
+                <p> The following is a list of typical project steps used in a TEI annotation project and
+            how these tools might fit into this project.</p>
+                <div class="orderedlist">
+                    <ol class="orderedlist" type="1">
+                        <li class="listitem">
+                            <p>Download the eXist native XML database</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Load the TEI Annotator XRX application </p>
+                        </li>
+                        <li class="listitem">
+                            <p>Run the unit tests to make sure all the configuration files are setup
+                        correctly</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Customize the style module to include your site-wide header and
+                        footers</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Customize the site-wide style.css CSS style sheet</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Load your TEI data into a data collection for example
+                        /db/project/apps/tei/data</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Write an XQuery program that lists the TEI documents in your collection
+                        and another that lists all the items you want to edit in the
+                        document.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>View the TEI documents and adds an "Edit" button to the structures you
+                        want to edit such as divs or paragraphs</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Pass the paragraph or div ID to an XQuery that generates an XForm that
+                        edits the paragraph</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Connect a "Save" button to a script that takes the HTTP POST data and
+                        stores it in your database</p>
+                        </li>
+                    </ol>
+                </div>
+                <p>
+        </p>
+            </div>
+            <div class="section">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title" style="clear: both">
+                                <a xmlns:saxon="http://icl.com/saxon" id="d0e367"/>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <p/>
+            </div>
+        </div>
+    </body>
+</html>

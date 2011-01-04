@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results>
+    <entity>terms</entity>
+    <type>contains</type>
+    <q>e</q>
+    <items>
+        <item>
+            <value>term-1</value>
+            <label>Term 1</label>
+        </item>
+        <item>
+            <value>term-2</value>
+            <label>Term 3</label>
+        </item>
+        <item>
+            <value>term-3</value>
+            <label>Term 4</label>
+        </item>
+    </items>
+</results>

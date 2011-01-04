@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-comments>
+    <test>
+        <id>01-icon-test.xq</id>
+        <description>Test of installation of CSS file and icon in image collection.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>02-xforms-test.xq</id>
+        <description>A test of loading XSLTForms.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>03-ckedit-full-toolbar-test.xq</id>
+        <description>Test of loading the full CKEditor into the browser.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="pass">Pass</span>
+            <span class="fail">Fail</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>04-ckedit-small-toolbar-test.xq</id>
+        <description>Test loading a subest of the CKEditor toolbar in the editor.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="pass">Pass</span>
+            <span class="fail">Fail</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>05-tei-load-test.xq</id>
+        <description>Basic load testing of the TEI annotator.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="pass">Pass</span>
+            <span class="fail">Fail</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>05-tei-toolbar-test.xq</id>
+        <description>Test loading the full tei-ann toolbar in the editor.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="pass">Pass</span>
+            <span class="fail">Fail</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>06-tei-custom-toolbar-test.xq</id>
+        <description>Group toolbar buttons together in logical groups.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="pass">Pass</span>
+            <span class="fail">Fail</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>07-tei-complex-content-test.xq</id>
+        <description>Load complex nested elements into TEI annotator.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="pass">Pass</span>
+            <span class="fail">Fail</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>07-tei-list-test.xq</id>
+        <description>Simple lists and complex lists of lists.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="pass">Pass</span>
+            <span class="fail">Fail</span>
+            <span class="pass">Pass</span>
+        </status>
+    </test>
+    <test>
+        <id>50-echo-post-test.xq</id>
+        <description>Sends the content of the model to an HTTP POST echo script.</description>
+        <status>
+            <span class="pass">Pass</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+            <span class="unknown">Unknown</span>
+        </status>
+    </test>
+</test-comments>

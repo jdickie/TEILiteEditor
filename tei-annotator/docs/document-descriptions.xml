@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documents>
+    <document>
+        <id>tei-annotator-user-guide.xhtml</id>
+        <name>TEI Annotator User Guide (HTML)</name>
+        <description>General User Guide in XHTML format for a broad audience.</description>
+    </document>
+    <document>
+        <id>tei-annotator-user-guide.pdf</id>
+        <name>TEI Annotator User Guide (PDF)</name>
+        <description>User Guide in PDF format.</description>
+    </document>
+    <document>
+        <id>features.xq</id>
+        <name>TEI Annotator Features</name>
+        <description>High level list of features of the current version.</description>
+    </document>
+    <document>
+        <id>arch.xq</id>
+        <name>Architecture Guide</name>
+        <description>Architectural overview for individuals interested in the architecture
+        of the project and why we chose this specific architecture over other architectures.</description>
+    </document>
+</documents>
