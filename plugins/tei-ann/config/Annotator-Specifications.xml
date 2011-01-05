@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotators xmlns:teiann="http://syntactica.com">
+    <EditableAnnotatorTypes>insert-parametrized selected-wrap-parameterized selected-wrap-server</EditableAnnotatorTypes>
+    <StandardPanels>
+        <selected-wrap-server>
+            <AnnotatorPanel>
+                <AnnotatorPanelMinWidth>500</AnnotatorPanelMinWidth>
+                <AnnotatorPanelMinHeight>300</AnnotatorPanelMinHeight>
+                <AnnotatorPanelTab id="teiannSearchableListTab1">
+                    <AnnotatorPanelTabHtmlContent>
+				&lt;style type="text/css"&gt; 
+				#teiannSearchListDiv {width:100%;height:200px;} 
+				#teiannSearchListDiv label {float:left;font-weight:bold;width:25%;} 
+				#teiannSearchList {float:left;width:95%;border:1px solid #a0a0a0;background-color: white;} 
+				#teiannSearchCriterion {float:left;border:1px solid #a0a0a0;width:50%;background-color: white;margin-bottom:20px;margin-right:40px;} 
+				#teiannSearchButton {font-size:12px;font-family:Arial,sans-serif;font-weight:bold;color:#444444;background-color:#EEEEEE;border-style:double;border-color:#999999;border-width:3px;} 
+				&lt;/style&gt; 
+				&lt;div id="teiannSearchListDiv"&gt; 
+				&lt;label id="teiannSearchStringLabel" for="searchCriterion"&gt;&lt;/label&gt; 
+				&lt;input id="teiannSearchCriterion" type="text"/&gt; 
+				&lt;input id="teiannSearchButton" type="button" value="" onclick="this.teiannGenerateSearchList()"/&gt; 
+				&lt;label id="searchListLabel" for="searchList"&gt;&lt;/label&gt; 
+				&lt;select id="teiannSearchList" size="1"/&gt; 
+				&lt;/div&gt;
+			</AnnotatorPanelTabHtmlContent>
+                </AnnotatorPanelTab>
+            </AnnotatorPanel>
+        </selected-wrap-server>
+    </StandardPanels>
+    <Annotator id="teiannLineBreakBtn" name="lb" typeCode="insert">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute/>
+        <AnnotatorIconName>lineBreak.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannPageBreakBtn" name="pb" typeCode="insert"><!--this is actually of insert-parametrized type-->
+	    <!-- Sample: <pb n="III" xml:id="pg_III" facs="0003"/> -->
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>pageBreak.gif</AnnotatorIconName>
+        <AnnotatorAttribute>n</AnnotatorAttribute>
+        <AnnotatorAttribute>xml:id</AnnotatorAttribute>
+        <AnnotatorAttribute>facs</AnnotatorAttribute>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+        <AnnotatorPanel>
+            <AnnotatorPanelMinHeight>500px</AnnotatorPanelMinHeight>
+            <AnnotatorPanelMinWidth>500px</AnnotatorPanelMinWidth>
+            <AnnotatorPanelTab id="teiannPageBreakBtnTab1">
+                <AnnotatorPanelField id="teiannPageBreakN">
+                    <AnnotatorPanelFieldRef>@n</AnnotatorPanelFieldRef>
+                    <AnnotatorPanelFieldValidationRegex/>
+                </AnnotatorPanelField>
+                <AnnotatorPanelField id="teiannPageBreakID">
+                    <AnnotatorPanelFieldRef>@xml:id</AnnotatorPanelFieldRef>
+                    <AnnotatorPanelFieldValidationRegex/>
+                </AnnotatorPanelField>
+                <AnnotatorPanelField id="teiannPageBreakFacs">
+                    <AnnotatorPanelFieldRef>@facs</AnnotatorPanelFieldRef>
+                    <AnnotatorPanelFieldValidationRegex/>
+                </AnnotatorPanelField>
+            </AnnotatorPanelTab>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannItalicBtn" name="hi" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>italic.gif</AnnotatorIconName>
+        <AnnotatorAttribute name="rend" value="italic"/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannBoldBtn" name="hi" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>bold.gif</AnnotatorIconName>
+        <AnnotatorAttribute name="rend" value="strong"/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannUnderlineBtn" name="hi" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>underline.gif</AnnotatorIconName>
+        <AnnotatorAttribute name="rend" value="underline"/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannStrikethroughBtn" name="hi" typeCode="selected-wrap">
+        <AnnotatorIconName>strikethrough.gif</AnnotatorIconName>
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute name="rend" value="strikethrough"/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannDateBtn" name="date" typeCode="selected-wrap-parameterized">
+        <AnnotatorIconName>calendar.png</AnnotatorIconName>
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute name="when" value=""/>
+        <AnnotatorAttribute name="when2" value=""/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+        <AnnotatorPanel>
+            <AnnotatorPanelMinWidth>400</AnnotatorPanelMinWidth>
+            <AnnotatorPanelMinHeight>200</AnnotatorPanelMinHeight>
+            <AnnotatorPanelTab id="teiannDateBtnTab1">
+                <AnnotatorPanelField id="teiannDateWhen">
+                    <AnnotatorPanelFieldRef>@when</AnnotatorPanelFieldRef>
+                    <AnnotatorPanelFieldValidationRegex>^\d{4}\-\d{2}\-\d{2}$</AnnotatorPanelFieldValidationRegex>
+                </AnnotatorPanelField>
+                <AnnotatorPanelTabHtmlContent>
+			&lt;style type="text/css"&gt; 
+			#teiannDateBtnDiv {width:100%;height:200px;} 
+			#teiannDateBtnDiv label {float:left;font-weight:bold;width:25%;} 
+			#teiannDateWhen {float:left;border:1px solid #a0a0a0;width:50%;background-color: white;margin-right:40px;} 
+			&lt;/style&gt; 
+			&lt;div id="teiannDateBtnDiv"&gt; 
+			&lt;label for="teiannDateWhen" id="teiannDateWhenLabel"&gt;&lt;/label&gt; 
+			&lt;input id="teiannDateWhen" type="text"/&gt; 
+			&lt;/div&gt;
+		</AnnotatorPanelTabHtmlContent>
+            </AnnotatorPanelTab>
+            <AnnotatorPanelTab id="teiannDateBtnTab2">
+                <AnnotatorPanelField id="teiannDateWhen2">
+                    <AnnotatorPanelFieldRef>@when2</AnnotatorPanelFieldRef>
+                    <AnnotatorPanelFieldValidationRegex/>
+                </AnnotatorPanelField>
+                <AnnotatorPanelTabHtmlContent>
+			    &lt;style type="text/css"&gt; 
+			    #teiannDateBtnDiv2 {width:100%;height:200px;} 
+			    #teiannDateBtnDiv2 label {float:left;font-weight:bold;width:25%;} 
+			    #teiannDateWhen2 {float:left;border:1px solid #a0a0a0;width:50%;background-color: white;margin-right:40px;} 
+			    &lt;/style&gt; 
+			    &lt;div id="teiannDateBtnDiv2"&gt; 
+			    &lt;label for="teiannDateWhen2" id="teiannDateWhen2Label"&gt;&lt;/label&gt; 
+			    &lt;input id="teiannDateWhen2" type="text"/&gt; 
+			    &lt;/div&gt;
+		    </AnnotatorPanelTabHtmlContent>
+            </AnnotatorPanelTab>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannHyperlinkBtn" name="ref" typeCode="selected-wrap-parameterized">
+        <AnnotatorIconName>link.png</AnnotatorIconName>
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute name="target" value=""/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+        <AnnotatorPanel>
+            <AnnotatorPanelMinWidth>400</AnnotatorPanelMinWidth>
+            <AnnotatorPanelMinHeight>200</AnnotatorPanelMinHeight>
+            <AnnotatorPanelTab id="teiannHyperlinkBtnTab1">
+                <AnnotatorPanelField id="teiannHyperlinkTarget">
+                    <AnnotatorPanelFieldRef>@target</AnnotatorPanelFieldRef>
+                    <AnnotatorPanelFieldValidationRegex/>
+                </AnnotatorPanelField>
+                <AnnotatorPanelTabHtmlContent>
+			&lt;style type="text/css"&gt; 
+			#teiannHyperlinkBtnDiv {width:100%;height:200px;} 
+			#teiannHyperlinkBtnDiv label {float:left;font-weight:bold;width:25%;} 
+			#teiannHyperlinkTarget {float:left;border:1px solid #a0a0a0;width:50%;background-color: white;margin-left:50px;} 
+			&lt;/style&gt; 
+			&lt;div id="teiannHyperlinkBtnDiv"&gt; 
+			&lt;label for="teiannHyperlinkTarget" id="teiannHyperlinkTargetLabel"&gt;&lt;/label&gt; 
+			&lt;input id="teiannHyperlinkTarget" type="text"/&gt; 
+			&lt;/div&gt;
+		</AnnotatorPanelTabHtmlContent>
+            </AnnotatorPanelTab>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannPersonBtn" name="persName" typeCode="selected-wrap-server">
+        <AnnotatorIconName>person.png</AnnotatorIconName>
+        <AnnotatorIDServiceURI>http://localhost:8080/webApps/suggest-person.xql?test=</AnnotatorIDServiceURI>
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute name="corresp" value=""/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannGlossaryBtn" name="gloss" typeCode="selected-wrap-server">
+        <AnnotatorIconName>term.png</AnnotatorIconName>
+        <AnnotatorIDServiceURI>http://localhost:8080/webApps/suggest-term.xql?test=</AnnotatorIDServiceURI>
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute name="target" value="" storesSearchResult="yes"/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannGeoLocationBtn" name="placeName" typeCode="selected-wrap-server">
+        <AnnotatorIconName>geolocation.png</AnnotatorIconName>
+        <AnnotatorIDServiceURI>http://localhost:8080/webApps/suggest-location.xql?test=</AnnotatorIDServiceURI>
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute name="key" value="" storesSearchResult="yes"/>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannParagraphBtn" name="p" typeCode="insert-split">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorAttribute/>
+        <AnnotatorIconName>paragraph.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannListBtn" name="list" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>list.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannHeadBtn" name="head" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>list</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>head.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannItemBtn" name="item" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>list</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>item.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannTableBtn" name="table" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>table.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannRoleBtn" name="role" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>role.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+    <Annotator id="teiannCellBtn" name="cell" typeCode="selected-wrap">
+        <AnnotatorPossibleParentElementNames>teiHeader p div</AnnotatorPossibleParentElementNames>
+        <AnnotatorPossiblePrecedingSiblingElementNames/>
+        <AnnotatorIconName>cell.gif</AnnotatorIconName>
+        <InsertEntityKey/>
+        <ClearEntityKey/>
+    </Annotator>
+<!--These annotators below are standard, do not modify!-->
+    <Annotator id="teiannRemoveEntityBtn" name="" typeCode="remove-entity">
+        <AnnotatorIconName>removeEntity.gif</AnnotatorIconName>
+        <AnnotatorPossibleParentElementNames/>
+        <AnnotatorAttribute/>
+        <AnnotatorPanel>
+            <AnnotatorPanelMinWidth>390</AnnotatorPanelMinWidth>
+            <AnnotatorPanelMinHeight>100</AnnotatorPanelMinHeight>
+            <AnnotatorPanelTab id="teiannRemoveEntityBtnTab1">
+                <AnnotatorPanelTabHtmlContent>
+			&lt;span id="teiannRemoveEntityBtnPanelLabel" style="white-space:normal;"&gt;&lt;/span&gt;
+		</AnnotatorPanelTabHtmlContent>
+            </AnnotatorPanelTab>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannEditEntityBtn" name="" typeCode="edit-entity">
+        <AnnotatorIconName>editEntity.gif</AnnotatorIconName>
+        <AnnotatorPossibleParentElementNames/>
+        <AnnotatorAttribute/>
+    </Annotator>
+</Annotators>

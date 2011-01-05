@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2010 kuberam.ro - Claudius Teodorescu. All rights reserved.
+    Released under LGPL License - http://gnu.org/licenses/lgpl.html.
+-->
+<lang>
+    <Annotator id="teiannDateBtn">
+        <ToolbarButtonTitle>Date</ToolbarButtonTitle>
+        <AnnotatorPanel>
+            <AnnotatorPanelTitle>Enter date in format YYYY-MM-DD</AnnotatorPanelTitle>
+            <AnnotatorPanelTab id="teiannDateBtnTab1">
+                <AnnotatorPanelTabTitle>Date</AnnotatorPanelTabTitle>
+                <AnnotatorPanelTabElement id="teiannDateWhenLabel" for="teiannDateWhen" type="label">Enter date: </AnnotatorPanelTabElement>
+            </AnnotatorPanelTab>
+            <AnnotatorPanelTab id="teiannDateBtnTab2">
+                <AnnotatorPanelTabTitle>Date2</AnnotatorPanelTabTitle>
+                <AnnotatorPanelTabElement id="teiannDateWhen2Label" for="teiannDateWhen2" type="label">Enter date2: </AnnotatorPanelTabElement>
+            </AnnotatorPanelTab>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannHyperlinkBtn">
+        <ToolbarButtonTitle>Hyperlink</ToolbarButtonTitle>
+        <AnnotatorPanel>
+            <AnnotatorPanelTitle>Enter hyperlink target</AnnotatorPanelTitle>
+            <AnnotatorPanelTab id="teiannHyperlinkBtnTab1">
+                <AnnotatorPanelTabTitle>Hyperlink target</AnnotatorPanelTabTitle>
+                <AnnotatorPanelField>
+                    <AnnotatorPanelTabElement id="teiannHyperlinkTargetLabel" for="teiannHyperlinkTarget" type="label">Enter hyperlink target: </AnnotatorPanelTabElement>
+                </AnnotatorPanelField>
+            </AnnotatorPanelTab>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannPersonBtn">
+        <ToolbarButtonTitle>Person</ToolbarButtonTitle>
+        <AnnotatorPanel>
+            <AnnotatorPanelTitle>Person</AnnotatorPanelTitle>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannLineBreakBtn">
+        <ToolbarButtonTitle>Insert a line break.</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannParagraphBtn">
+        <ToolbarButtonTitle>Insert a paragraph.</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannGlossaryBtn">
+        <ToolbarButtonTitle>Glossary Term</ToolbarButtonTitle>
+        <AnnotatorPanel>
+            <AnnotatorPanelTitle>Glossary term</AnnotatorPanelTitle>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannGeoLocationBtn">
+        <ToolbarButtonTitle>Geo-Location</ToolbarButtonTitle>
+        <AnnotatorPanel>
+            <AnnotatorPanelTitle>Place Name</AnnotatorPanelTitle>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannBoldBtn">
+        <ToolbarButtonTitle>Insert bold style.</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannItalicBtn">
+        <ToolbarButtonTitle>Insert italic style.</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannUnderlineBtn">
+        <ToolbarButtonTitle>Insert underline style.</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannStrikethroughBtn">
+        <ToolbarButtonTitle>Insert strikethrough style.</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannPageBreakBtn">
+        <ToolbarButtonTitle>Insert a page break with three attributes.</ToolbarButtonTitle>
+    </Annotator>
+    <!--    <Annotator id="teiannPageBreakBtn">
+	    <ToolbarButtonTitle>Insert a page break with three attributes.</ToolbarButtonTitle>
+	    <AnnotatorPanel>
+		    <AnnotatorPanelTitle>Page Break Attributes</AnnotatorPanelTitle>
+		    <AnnotatorPanelTab id="teiannPageBreakBtnTab1">
+			    <AnnotatorPanelTabTitle>Page Break Attributes</AnnotatorPanelTabTitle>
+			    <AnnotatorPanelField>
+				    <AnnotatorPanelTabElement id="teiannPageBreakNLabel" for="teiannPageBreakN" type="label">N</AnnotatorPanelTabElement>
+				    <AnnotatorPanelTabElement id="teiannPageBreakIDLabel" for="teiannPageBreakID" type="label">XML ID</AnnotatorPanelTabElement>
+				    <AnnotatorPanelTabElement id="teiannPageBreakFacsLabel" for="teiannPageBreakFacs" type="label">FACS</AnnotatorPanelTabElement>
+			    </AnnotatorPanelField>
+		    </AnnotatorPanelTab>
+	    </AnnotatorPanel>
+    </Annotator>-->
+    <Annotator id="teiannListBtn">
+        <ToolbarButtonTitle>Insert a list</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannHeadBtn">
+        <ToolbarButtonTitle>Insert a head for list</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannItemBtn">
+        <ToolbarButtonTitle>Insert an item for list</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannTableBtn">
+        <ToolbarButtonTitle>Insert a table</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannRoleBtn">
+        <ToolbarButtonTitle>Insert a role for table</ToolbarButtonTitle>
+    </Annotator>
+    <Annotator id="teiannCellBtn">
+        <ToolbarButtonTitle>Insert a cell for table</ToolbarButtonTitle>
+    </Annotator>
+    <StandardPanels>
+        <selected-wrap-server>
+            <AnnotatorPanel>
+                <AnnotatorPanelTab id="teiannSearchableListTab1">
+                    <AnnotatorPanelTabTitle>Searchable list</AnnotatorPanelTabTitle>
+                    <AnnotatorPanelTabElement id="teiannSearchStringLabel" type="label">Enter search string</AnnotatorPanelTabElement>
+                    <AnnotatorPanelTabElement id="teiannSearchButton" type="button">Search</AnnotatorPanelTabElement>
+                    <AnnotatorPanelTabElement id="searchListLabel" type="label">List of search results</AnnotatorPanelTabElement>
+                </AnnotatorPanelTab>
+            </AnnotatorPanel>
+        </selected-wrap-server>
+    </StandardPanels>
+    <generalErrorMsgs>
+		<!--Messages-->
+        <selectionEmpty>In order to annotate, you must select something!</selectionEmpty>
+        <selectionNonEmpty>In order to annotate, you must NOT select text!</selectionNonEmpty>
+        <warnOnForbiddenOverlapping>You are not allowed to overlap these TEI elements!</warnOnForbiddenOverlapping>
+<!--        <warnOnMissingHyperlinkTarget>URL must not be empty!</warnOnMissingHyperlinkTarget>-->
+        <warnOnSelectingSearchResult>In order to annotate, you must select one search result!</warnOnSelectingSearchResult>
+<!--         <warnOnInvalidDate>Invalid date!</warnOnInvalidDate> -->
+        <warnOnRemovingRootEntity>You are not allowed to remove the root entity!</warnOnRemovingRootEntity>
+        <warnOnSplittingElement>You are not allowed to insert this entity here!</warnOnSplittingElement>
+    </generalErrorMsgs>
+    <!--This annotator below is standard, do not modify!-->
+    <Annotator id="teiannRemoveEntityBtn">
+        <ToolbarButtonTitle>Clear entity</ToolbarButtonTitle>
+        <AnnotatorPanel>
+            <AnnotatorPanelTitle>Do you really want to clear this entity?</AnnotatorPanelTitle>
+            <AnnotatorPanelTab id="teiannRemoveEntityBtnTab1">
+                <AnnotatorPanelTabTitle>Clear entity</AnnotatorPanelTabTitle>
+                <AnnotatorPanelTabElement id="teiannRemoveEntityBtnPanelLabel" type="label">Do you really want to clear the entity '%entityName' having content '%entityContent'?</AnnotatorPanelTabElement>
+            </AnnotatorPanelTab>
+        </AnnotatorPanel>
+    </Annotator>
+    <Annotator id="teiannEditEntityBtn">
+        <ToolbarButtonTitle>Edit entity</ToolbarButtonTitle>
+    </Annotator>
+</lang>

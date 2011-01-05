@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2010 kuberam.ro - Claudius Teodorescu. All rights reserved.
+    Released under LGPL License - http://gnu.org/licenses/lgpl.html.
+-->
+<rteConfigOptions>
+	<editor type="YUIEditor">
+		<!--set the URI to the YUI folder-->
+<!-- 		<script src="http://yui.yahooapis.com/2.8.1/build/yuiloader/yuiloader-min.js">/* */</script> -->
+		<initialize>
+			<script type="text/javascript" src="../../utils/yui/build/yuiloader/yuiloader.js">/* */</script>
+			<script type="text/javascript">
+				<![CDATA[
+					function generateYUIeditors() {
+						eXSLTForms.utils.pollingConditions[ 'generateYUIEditors' ] = {
+							testedValue: function() { return (typeof YAHOO.widget.EditorInfo != 'undefined') },
+							executedFunction: function() {
+								eXSLTForms.rte.generateEditors( 'YUIEditor' );
+							}
+						}
+						eXSLTForms.utils.poll( 'generateYUIEditors' );
+					}
+					//set the base value = URI to the 'build' folder within YUI folder
+					var YUIloader = new YAHOO.util.YUILoader( { require: [ 'editor' ], base: '../../utils/yui/build/' } );
+					//var YUIloader = new YAHOO.util.YUILoader( { require: [ 'editor' ], base: 'http://yui.yahooapis.com/2.8.1/build/' } );
+					YUIloader.onSuccess = generateYUIeditors;
+					YUIloader.insert();
+				]]>
+			</script>
+		</initialize>
+	</editor>
+	<editor type="CKEditor">
+		<!--set the URI to the CKEditor folder-->
+<!-- 		<script type="text/javascript" src="http://ckeditor.com/apps/ckeditor/3.2.1/ckeditor.js?1274094918">/* */</script>		 -->
+		<initialize>
+			<script type="text/javascript" src="../../utils/ckeditor/ckeditor.js">/* */</script>
+			<script type="text/javascript" src="../../utils/ckeditor/plugins/tei-ann/init.js">/* */</script>
+		</initialize>
+	</editor>
+	<editor type="EditArea">
+		<!--set the URI to the EditArea folder-->
+		<initialize>
+			<script type="text/javascript" src="../../utils/editarea/edit_area/edit_area_full.js">/* */</script>
+		</initialize>
+	</editor>
+	<editor type="DojoEditor">
+		<!--set the URI to the Dojo folder-->
+		<!-- <script type="text/javascript" src="http://jaredj.dojotoolkit.org/demo/dojo/dojo.js">/* */</script> -->
+		<initialize>
+			<script type="text/javascript" src="../../utils/dojo/dojo/dojo.js">/* */</script>
+			<script type="text/javascript">
+				dojo.addOnLoad(function() { dojo.require("dijit.Editor"); });
+			</script>
+			<script type="text/javascript">
+				<![CDATA[
+					dojo.addOnLoad(function() {
+						eXSLTForms.utils.pollingConditions[ 'generateDojoEditors' ] = {
+							testedValue: function() { return eXSLTForms.utils.pollTestedValues[ 'textarea2rte_registered' ] },
+							executedFunction: function() {
+								for (var editorID in eXSLTForms.registry.textarea2rte) {
+								if ( eXSLTForms.registry.textarea2rte[ editorID ].editorType == 'DojoEditor' ) {
+									eXSLTForms.rte.specificFunctions[ eXSLTForms.registry.textarea2rte[ editorID ].editorType ].beforeRendering( eXSLTForms.registry.textarea2rte[ editorID ].nativeConfigOptionsObject );
+										new dijit.Editor( eXSLTForms.registry.textarea2rte[ editorID ].nativeConfigOptionsObject, dojo.byId( editorID ));
+										dojo.connect(dijit.byId( editorID ), "onBlur", function( editorContent ) { eXSLTForms.rte.generalFunctions.saveEditorContent( this.id, dijit.registry._hash[ this.id ].document.activeElement.innerHTML ); });
+										if ( eXSLTForms.registry.textarea2rte[ editorID ].incremental == 'true' ) {
+											dojo.connect( dijit.byId( editorID ), "onNormalizedDisplayChanged", function( event ) { eXSLTForms.rte.generalFunctions.saveEditorContent( this.id, dijit.registry._hash[ this.id ].document.activeElement.innerHTML ); } );
+										}
+										eXSLTForms.rte.generalFunctions.addXFupdateListener( editorID );
+									}
+								}
+							}
+						}
+						eXSLTForms.utils.poll( 'generateDojoEditors' );
+					});
+				]]>
+			</script>
+		</initialize>
+	</editor>
+	<editor type="TinyMCE">
+		<!--set the URI to the TinyMCE folder-->
+<!-- 		<script type="text/javascript" src="http://tinymce.moxiecode.com/js/tinymce/jscripts/tiny_mce/tiny_mce.js">/* */</script> -->
+		<initialize>
+			<script type="text/javascript" src="../../utils/tinymce/jscripts/tiny_mce/tiny_mce.js">/* */</script>
+		</initialize>
+	</editor>
+	<editor type="Xinha">
+		<initialize>
+			<script type="text/javascript">
+				_editor_url  = "http://localhost/utils/xinha/"  //(preferably absolute) URL (including trailing slash) where Xinha is installed
+				//_editor_url  = "http://xinha.raimundmeyer.de/latest/"
+				_editor_lang = "en";     //And the language we need to use in the editor.
+			</script>
+			<script type="text/javascript" src="http://localhost/utils/xinha/XinhaLoader.js">/* */</script>
+<!-- 			<script type="text/javascript" src="http://xinha.raimundmeyer.de/latest/XinhaLoader.js">/* */</script> -->
+			<script type="text/javascript">
+				<![CDATA[
+					 //eXSLTForms.rte.specificFunctions[ eXSLTForms.registry.textarea2rte[ editorID ].editorType ].beforeRendering( eXSLTForms.registry.textarea2rte[ editorID ].nativeConfigOptionsObject );
+					xinha_editors = [];
+					xinha_editorIDs = [];
+					xinha_allPlugins = [];
+					
+					xinha_generateConfigOptions = function() {
+						for ( var editorID in eXSLTForms.registry.textarea2rte ) {
+							xinha_editorIDs.push( editorID );
+							xinha_allPlugins = xinha_allPlugins.concat( eXSLTForms.registry.textarea2rte[ editorID ].nativeConfigOptionsObject.plugins );
+						}
+					}
+	
+					xinha_init = function() {
+						if( !Xinha.loadPlugins( xinha_allPlugins, xinha_init ) ) return;
+						xinha_config = new Xinha.Config();
+					
+						xinha_editors = Xinha.makeEditors( xinha_editorIDs,  xinha_config );
+						
+						eXSLTForms.registry.plugins[ 'Xinha' ] = {};
+						eXSLTForms.registry.plugins.Xinha[ 'lastXinhaEditorID' ] = '';
+	
+						// register plugins and configOptions to each editor
+						for ( var editorID in eXSLTForms.registry.textarea2rte ) {
+							var editor = xinha_editors[ editorID ];
+							editor.registerPlugins( eXSLTForms.registry.textarea2rte[ editorID ].nativeConfigOptionsObject.plugins );
+							eXSLTForms.rte.generalFunctions.addXFupdateListener( editorID );						
+	
+							for ( var configOption in eXSLTForms.registry.textarea2rte[ editorID ].nativeConfigOptionsObject.configOptions ) {
+								editor.config[ configOption ] = eXSLTForms.registry.textarea2rte[ editorID ].nativeConfigOptionsObject.configOptions[ configOption ];
+							}
+							eXSLTForms.registry.plugins.Xinha.lastXinhaEditorID = editorID;
+						}
+				
+						Xinha.startEditors( xinha_editors );
+					}
+					
+					// register events to each editor
+					xinha_attachEvents = function() {
+						for ( var editorID in eXSLTForms.registry.textarea2rte ) {
+							var editor = xinha_editors[ editorID ];
+							editor._doc.activeElement.id = editorID;
+							if ( eXSLTForms.registry.textarea2rte[ editorID ].incremental == 'true' ) {
+								editor.config.Events[ 'onKeyPress' ] = function ( event ) { eXSLTForms.rte.generalFunctions.saveEditorContent( editor._doc.activeElement.id, this._doc.activeElement.innerHTML ); }
+							}
+							Xinha._addEvent( editor._iframe, 'blur', function(){ eXSLTForms.rte.generalFunctions.saveEditorContent( this.contentDocument.activeElement.id, this.contentDocument.activeElement.innerHTML ); } ); // IE
+							Xinha._addEvent( editor._doc, 'blur',    function(){ eXSLTForms.rte.generalFunctions.saveEditorContent( this.activeElement.id, this.activeElement.innerHTML ); } ); // GECKO 
+						}
+					}
+
+					Xinha._addEvent( window,'load', xinha_generateConfigOptions );
+					Xinha._addEvent( window,'load', xinha_init );
+					
+					eXSLTForms.utils.pollingConditions[ 'xinha_attachEvents' ] = {
+						testedValue: function() {
+							var lastXinhaEditorID = xinha_editorIDs[ xinha_editorIDs.length - 1];
+							return ( xinha_editors && xinha_editors[ 'Xinha_0' ] && xinha_editors[ 'Xinha_0' ]._doc && xinha_editors[ 'Xinha_0' ]._doc.body )
+							},
+							executedFunction: function() { xinha_attachEvents(); }
+					}
+					eXSLTForms.utils.poll( 'xinha_attachEvents' );
+				]]>
+			</script>
+		</initialize>
+	</editor>
+</rteConfigOptions>
