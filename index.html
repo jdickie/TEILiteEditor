@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- 
+		Developed for the XML Editor Barn Raising Week at MITH
+		c) MITH 2011
+		Grant Dickie
+		James Chartrand
+	-->
+	<title>TEI Lite-based Editor</title>
+	
+	<script type="text/javascript" src="plugins/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="plugins/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="plugins/ckeditor/adapters/jquery.js"></script>
+	<script>
+		$(function(){
+			// create the editor using the jquery plugin for ckeditor with a basic toolbar
+			$(".main > #ckeditor").ckeditor({toolbar:[['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','About']]});
+			// grab the instance of the editor
+			var editor=$(".main > #ckeditor").ckeditorGet();
+			// use the actual Javascript instance to customize a dialog box
+			editor.on( 'pluginsLoaded', function( ev ){
+			           if ( !CKEDITOR.dialog.exists( 'customAuthority' ) )
+			                 CKEDITOR.dialog.add( 'customAuthority',function(editor){
+				alert('click');
+			});
+			           // Register the command used to open the dialog.
+			           editor.addCommand( 'authorityAddCmd', new CKEDITOR.dialogCommand('authorityAddCmd' ) );
+			           editor.ui.addButton( 'Add Authority',
+			                    {
+			                        label : 'Authority',
+			                        command : 'authorityAddCmd',
+			                        icon : '',
+			                    } );
+			});
+			
+		});
+	
+	</script>
+</head>
+
+<body>
+	<div class="main">
+		<div class="header">
+			<h2>Editor</h2>
+			<h2>Github Repo: <a href="http://github.com/jdickie/TEILiteEditor">http://github.com/jdickie/TEILiteEditor</a></h2>
+			</div>
+		<div id="ckeditor">
+		
+		</div>
+	</div>
+
+</body>
+</html>
