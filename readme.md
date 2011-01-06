@@ -60,5 +60,12 @@ Now set up and ready to run in eXist as a webservice on your local machine
 *******
 
 II. Setting up TEI-Ann using the README.txt file located in the tei-ann download (http://sourceforge.net/projects/teiann/)
+------
+Following the instructions included in the INSTALL.html for ckeditor/ and the install.html in tei-ann/
+------
+After setting up the TEI-Ann plugin inside of ckeditor/, following instructions for the TEI-Ann code found at the TEI-Ann
+site under:
+http://184.72.253.206/rest/db/dma/apps/tei-annotator/docs/index.xq
+------
 
 
