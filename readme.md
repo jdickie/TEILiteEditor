@@ -34,7 +34,16 @@ http://184.72.253.206/rest/db/dma/apps/tei-annotator/docs/index.xq
 	- Searched for Add-ons 'Xforms' - installed and restarted
 	- Now some textareas appear on the index.xml
 
+* Reached error in Firefox: 
+Error loading stylesheet: A network error occured loading an XSLT stylesheet:http://localhost:8888/rest/db/dma/apps/tei-annotator/utils/exsltforms/exsltforms.xsl
+	* Possible Solution: Have to edit the Annotator-Specifications.xml
+		* For each <AnnotatorIDServiceURI>, have to change URI from REST format to localhost format: /rest/db/dma/apps/ to http://localhost:8888/TEILiteEditor/
+		* May need to copy over tei-annotator/ files into root directory
+	* Also found REST URI in the TEILiteEditor/plugins/exsltforms/eXSLTFormsConfigOptions.xml
+	* Also found REST URI in TEILiteEditor/plugins/xsltforms/xsltforms.xsl
 
+* Add <script> reference to plugins/ckeditor in index.xml
+	
 
 
 
