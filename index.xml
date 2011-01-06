@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://localhost:8080/webApps/utils/xsltforms/xsltforms.xsl" type="text/xsl"?>
+<!--
+	2011, MITH
+	Author: Grant Dickie
+	Developed for the XML Editor Week Barn Raising
+	
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:xf="http://www.w3.org/2002/xforms">
+   <head>
+      <title>XForms textarea</title>
+	 
+      <xf:model>
+         <xf:instance xmlns="">
+            <data>
+               <MyTextElement>Hello World!</MyTextElement>
+            </data>
+         </xf:instance>
+      </xf:model>
+   </head>
+   <body>
+      <xf:textarea ref="myTEItext" appearance="exfk:CKEditor">
+	   <xf:label>TEI Content:</xf:label>
+	   <xf:extension>
+	       <exfk:rteOptions>
+	          {
+	             skin:'office2003',
+	             width: 1000,
+	             height: 300,
+	             extraPlugins : 'tei-ann',
+	             toolbar: [[ 'teiannBoldBtn','teiannPersonBtn']]
+	            }
+	         </exfk:rteOptions>
+	     </xf:extension>
+	</xf:textarea>
+	
+   </body>
+</html>
