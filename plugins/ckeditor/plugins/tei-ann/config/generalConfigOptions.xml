@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generalConfigOptions>
+	<!--list of available localizations for plugin-->
+    <availableLangs>
+        <lang code="en"/>
+    </availableLangs>
+    <!--absolute path to the file containing the annotators' specification (Annotator-Specifications.xml)-->
+    <specificationFilePath>http://localhost:8888/TEILiteEditor/plugins/ckeditor/plugins/tei-ann/config/Annotator-Specifications.xml</specificationFilePath>
+    <!--absolute path to the css file for styling the entities-->
+    <CSSfilePath>http://localhost:8888/TEILiteEditor/plugins/ckeditor/plugins/tei-ann/config/tei-entities.css</CSSfilePath>
+</generalConfigOptions>
