@@ -1,39 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="http://localhost:8080/webApps/utils/xsltforms/xsltforms.xsl" type="text/xsl"?>
+<!-- This xml-stylesheet URL has to be customized for each implementation - need to include namespaces -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:exfk="http://kuberam.ro/exsltforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xf="http://www.w3.org/2002/xforms">
 <!--
 	2011, MITH
 	Author: Grant Dickie
 	Developed for the XML Editor Week Barn Raising
 	
 -->
-<html xmlns="http://www.w3.org/1999/xhtml" 
-   xmlns:xf="http://www.w3.org/2002/xforms">
    <head>
-      <title>XForms textarea</title>
-	 
-      <xf:model>
-         <xf:instance xmlns="">
-            <data>
-               <MyTextElement>Hello World!</MyTextElement>
-            </data>
-         </xf:instance>
-      </xf:model>
-   </head>
-   <body>
-      <xf:textarea ref="myTEItext" appearance="exfk:CKEditor">
-	   <xf:label>TEI Content:</xf:label>
-	   <xf:extension>
-	       <exfk:rteOptions>
-	          {
-	             skin:'office2003',
-	             width: 1000,
-	             height: 300,
-	             extraPlugins : 'tei-ann',
-	             toolbar: [[ 'teiannBoldBtn','teiannPersonBtn']]
-	            }
-	         </exfk:rteOptions>
-	     </xf:extension>
-	</xf:textarea>
+	<!-- Header information and body tags from tei-ann/example.xml -->
+      	<title>CKEditor rich text editor</title>
+		<link rel="stylesheet" type="text/css" href="plugins/skins/office2003/dialog.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/skins/office2003/editor.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/skins/office2003/templates.css" />
+       <style language="text/css">
+		    
+			     @namespace xf url("http://www.w3.org/2002/xforms");
+			     #triggerHome {float:left;margin-right:500px;margin-bottom:25px;}
+			     #outputSavedContent .xforms-label {margin-bottom:25px;margin-right:490px;font:bold 14px verdana;}
+			     </style>
+<!--        <script type="text/javascript" src="http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js"/>-->
+       <xf:model id="m">
+           <xf:instance id="i0">
+               <v xmlns="">
+                   <description>
+			    &lt;teiHeader&gt;&lt;p&gt;The best &lt;hi rend="strong"&gt;documentation&lt;/hi&gt; (made by John S. Anderson and Andrew S. Anderson, dated 1989-12-12) on this subject is by an insider, Budget Director &lt;persName corresp="#p_SHD1"&gt;John Harold Smith&lt;/persName&gt;,
+			    whose diary entries (actually, memoranda of conversation) for the same period are in the &lt;persName corresp="#p_RFD1"&gt;Franklin D. Roosevelt&lt;/persName&gt;
+			    Library.&lt;/p&gt;&lt;p&gt;The &lt;persName corresp="#p_LAWDUSN1"&gt;Leahy&lt;/persName&gt; files in Record Group 218 at the National Archives (Records of the Joint Chiefs of Staff)
+			    provided many of the early documents on the formative period (between &lt;date when="1989-04-12"&gt;12 Apr 89&lt;/date&gt; and 
+			    &lt;date when="1989-03-01" when2="when2"&gt;1 Mar 89&lt;/date&gt;) of the intelligence system…&lt;/p&gt;
+			    &lt;list&gt;&lt;head&gt;This is the head element of list&lt;/head&gt;
+			    &lt;item&gt;This is the first item element&lt;/item&gt;
+			    &lt;item&gt;This is the second item element&lt;/item&gt;			    
+			    &lt;/list&gt;
+			    &lt;table&gt;&lt;role&gt;This is the role element of table&lt;/role&gt;
+			    &lt;cell&gt;This is the first cell element&lt;/cell&gt;
+			    &lt;cell&gt;This is the second cell element&lt;/cell&gt;			    
+			    &lt;/table&gt;
+			    &lt;/teiHeader&gt;
+		</description>
+               </v>
+           </xf:instance>
+           <xf:submission id="submitRTEcontent" ref="instance('i0')/description" resource="RTE_viewContent.xql" method="post" mode="synchronous" omit-xml-declaration="true" replace="all"/>
+       </xf:model>
+</head>
+<body>
+     <xf:trigger id="triggerHome">
+            <xf:label>Home</xf:label>
+            <xf:action ev:event="DOMActivate">
+                <xf:load resource="../index/index.xml"/>
+            </xf:action>
+        </xf:trigger>
+        <xf:trigger>
+            <xf:label>Submit</xf:label>
+            <xf:action ev:event="DOMActivate">
+                <xf:send submission="submitRTEcontent"/>
+            </xf:action>
+        </xf:trigger>
+        <p>
+            <xf:output id="outputSavedContent" ref="instance('i0')/description">
+                <xf:label>Saved editor content: </xf:label>
+            </xf:output>
+        </p>
+        <p>
+            <xf:textarea ref="instance('i0')/description" appearance="exfk:CKEditor">
+                <xf:label>CKEditor editor 2:</xf:label>
+                <xf:extension>
+                    <exfk:rteOptions>
+			    {
+			    skin:'office2003'
+			    ,width: 1000
+			    ,height: 300
+			    ,extraPlugins : 'tei-ann'
+			    ,toolbar:
+				[
+					[ 'Source', 'teiannPersonBtn', 'teiannGlossaryBtn', 'teiannGeoLocationBtn', 'teiannDateBtn', 'teiannHyperlinkBtn' ],
+					'/',
+					[ 'teiannLineBreakBtn', 'teiannPageBreakBtn', 'teiannBoldBtn', 'teiannItalicBtn', 'teiannUnderlineBtn', 'teiannStrikethroughBtn', 'teiannParagraphBtn', 'teiannListBtn', 'teiannHeadBtn', 'teiannItemBtn', 'teiannTableBtn', 'teiannRoleBtn', 'teiannCellBtn' ]
+				]
+			    }
+		    </exfk:rteOptions>
+                </xf:extension>
+            </xf:textarea>
+        </p>
 	
    </body>
 </html>
