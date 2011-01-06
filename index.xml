@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This xml-stylesheet URL has to be customized for each implementation - need to include namespaces -->
+<?xml-stylesheet href="http://localhost:8888/TEILiteEditor/plugins/xsltforms/xsltforms.xsl" type="text/xsl"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:exfk="http://kuberam.ro/exsltforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xf="http://www.w3.org/2002/xforms">
 <!--
 	2011, MITH
