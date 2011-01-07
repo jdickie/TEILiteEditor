@@ -20,11 +20,18 @@ Specifications for the Tool
 * Validation of Markup based on TEI Lite Specifications
 	* This validation should be done in an efficient and non-intrusive way,
 	e.g.: oXygen
+	* Doesn't allow you to make too many mistakes before correcting you
+	* Multiple forms of validation - restrictive vs. flexible 
+	* Gives feedback on what you're doing wrong and how to correct
+	* Editor never allows for entering tags out of context
 * Connected to Freebase or other Name Authority Repository
 	* Repository shows up in a side window
 	* Tree structure of named authorities shows up on side panel
 	to illustrate to the user the name authorities they have already
 	inserted.
+* Machine-learning program that recognizes semantic concepts and the tree
+structure of a TEI document
+	* Guesses what the user is describing 
 * Code Completion is available in the toolbar as a drop-down
 	* Ideal would be having code completion or code guessing available as the 
 	user is typing and to have either a tree structure of possible elements on the 
@@ -35,12 +42,14 @@ parsed into a readable format by the editor.
 	the document into TEI-Ann, which then sends the document and parses it such that 
 	all of the taxonomies, named authorities, and XML elements are sorted in an 
 	efficient 'view' of the text.
+* Need to have 'placeholder' in the bottom that shows the user their place in the XML (Shows context)
 
 
 Thoughts on the process of developing a TEI Editor using Ckeditor and TEI-Ann
 ---
 
 Simple pro/con list:
+
 * Pros
 	* Very easy-to-use interface
 	* Ready-made CSS files
