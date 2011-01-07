@@ -81,8 +81,17 @@ Crafting a plugin for CKEditor
 ---
 
 This plan turned out to be the best option for us, since it provided the flexibility and control
-that we want out of an editor tool. 
+that we want out of an editor tool. Take a look at index.html and you'll see an example of attempting
+to accomplish just that. 
 
+Another try was actually adding the plugin into the CKEditor framework. This is done by adding a folder 
+inside of the plugins/ckeditor/plugins folder and editing the plugins/ckeditor/config.js file. More CSS
+and image icons have to be added to the root directory, but once this is done, a complete and working
+customized plugin is ready for CKeditor to use. We think this is the best way forward for right now, until
+TEI-Ann catches up with providing hooks for integrating xForms with jQuery. 
+
+More on this topic is covered at :
+http://www.voofie.com/content/2/ckeditor-plugin-development/
 
 Links:
 ---
