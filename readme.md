@@ -4,48 +4,61 @@ Susan Brown (sbrown@uoguelph.ca), James Chartrand (jc.chartrand@gmail.com), Gran
 
 
 Uses TEI-Ann plugin with CKEditor
+----
+Guide to the docs/ folder
+
+INSTALLeXist.txt : 
+* Documentation and notes on installing the Ckeditor with TEI-Ann as a plugin in the oXygen and eXist backend framework. 
+
+INSTALL_NoeXist.txt :
+* Documentation on installing Ckeditor and TEI-Ann using the README file included in the downloaded .tar file from 
+the TEI-Ann page in SourceForge
+----
+Thoughts on the process of developing a TEI Editor using Ckeditor and TEI-Ann
+
+Simple pro/con list:
+* Pros
+	* Very easy-to-use interface
+	* Ready-made CSS files
+	* oXygen and eXist are both powerful tools used by many in the field
+	* CKeditor works with jQuery
+* Cons
+	* Difficult setup 
+		* As the code stands now, the setup requires developers to use oXygen and eXist
+		as their backend. That can be advantageous for some programmers, but in this case
+		we did not have a suitable backend already in place. This meant a lot of work (See
+		INSTALLeXist.txt) to get things started. 
+		Once started, everything is running great. However, simple things such as not being
+		able to batch-transfer files to eXist collections really makes the process tedious.
+	* Code is not well documented
+		* This may be another issue that can be solved soon with further development. Right now, 
+		it seems that the code is for solving a specific problem in the markup community. With 
+		time and further API documentation, it can be improved.
+		The documentation page for TEI-Ann should have some examples of setups. The example.xml 
+		found with the unpacked code does provide some illumination into how to use the tool,
+		but for some people there should preferably be a variety of examples to illustrate best
+		practices.
+		When I got stuck several times with Javascript errors on my index.xml page that used
+		TEI-Ann, my instinct was to go to the source code and debug. I noticed that there was 
+		not that much in the way of comments in the code - something that I would suggest to 
+		improve, just so that programmers can see the logic behind the code.
+	
+
+
 
 Note: We successfully attempted to install the program using oXygen and eXist, but 
 decided that the best way forward was for a more web-friendly version that didn't 
 require Java. 
 For information on installing a TEI-Ann framework in eXist and oXygen, take a look at docs/INSTALLeXist.txt
 
-------
-Setting up TEI-Ann using the README.txt file located in the tei-ann download (http://sourceforge.net/projects/teiann/)
-------
-Following the instructions included in the INSTALL.html for ckeditor/ and the install.html in tei-ann/
 
-After setting up the TEI-Ann plugin inside of ckeditor/, following instructions for the TEI-Ann code found at the TEI-Ann
-site under:
-http://184.72.253.206/rest/db/dma/apps/tei-annotator/docs/index.xq
-
-* Download the tei-annotator.zip from danmccreary.com
-* Copy the files from tei-annotator/utils/* into TEILiteEditor/plugins/
-
-
-* Index.html needs to be converted in Xhtml
-- Copied and pasted from the index.xq page of instructions in 'Customizing the textarea'
-- Analyzing examples from tei-ann folder - copied over elements for <body> and header options
-	from tei-ann/example.xml
-	* Going to customize the example.xml
-
-* Installing xforms 
-	- Installed on Firefox 3.6.13
-	- Searched for Add-ons 'Xforms' - installed and restarted
-	- Now some textareas appear on the index.xml
-
-* Reached error in Firefox: 
-Error loading stylesheet: A network error occured loading an XSLT stylesheet:http://localhost:8888/rest/db/dma/apps/tei-annotator/utils/exsltforms/exsltforms.xsl
-	* Possible Solution: Have to edit the Annotator-Specifications.xml
-		* For each <AnnotatorIDServiceURI>, have to change URI from REST format to localhost format: /rest/db/dma/apps/ to http://localhost:8888/TEILiteEditor/
-		* May need to copy over tei-annotator/ files into root directory
-	* Also found REST URI in the TEILiteEditor/plugins/exsltforms/eXSLTFormsConfigOptions.xml
-	* Also found REST URI in TEILiteEditor/plugins/xsltforms/xsltforms.xsl
-
-* Add <script> reference to plugins/ckeditor in index.xml
 	
-
-
+-----
+Links:
+Customizing the CKEditor
+* http://www.voofie.com/content/2/ckeditor-plugin-development/
+Documentation TEI-Ann
+* http://184.72.253.206/rest/db/dma/apps/tei-annotator/docs/index.xq
 
 
 
