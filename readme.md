@@ -46,20 +46,22 @@ Simple pro/con list:
 		improve, just so that programmers can see the logic behind the code.
 	
 
+Crafting a plugin for CKEditor
+---
+
+This plan turned out to be the best option for us, since it provided the flexibility and control
+that we want out of an editor tool. 
 
 
-Note: We successfully attempted to install the program using oXygen and eXist, but 
-decided that the best way forward was for a more web-friendly version that didn't 
-require Java. 
-For information on installing a TEI-Ann framework in eXist and oXygen, take a look at docs/INSTALLeXist.txt
-
-
-	
------
 Links:
-Customizing the CKEditor
+---
+
+Customizing the CKEditor 
+
 * http://www.voofie.com/content/2/ckeditor-plugin-development/
+
 Documentation TEI-Ann
+
 * http://184.72.253.206/rest/db/dma/apps/tei-annotator/docs/index.xq
 
 
