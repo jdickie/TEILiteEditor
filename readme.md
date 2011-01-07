@@ -1,4 +1,5 @@
 TEI Lite Editor
+----------
 Project Members:
 Susan Brown (sbrown@uoguelph.ca), James Chartrand (jc.chartrand@gmail.com), Grant Dickie (jgrantd@gmail.com), Dave Lester (dave.lester@gmail.com)
 
