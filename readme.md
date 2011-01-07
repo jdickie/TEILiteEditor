@@ -4,17 +4,18 @@ Susan Brown (sbrown@uoguelph.ca), James Chartrand (jc.chartrand@gmail.com), Gran
 
 
 Uses TEI-Ann plugin with CKEditor
-----
-Guide to the docs/ folder
 
+Guide to the docs/ folder
+---
 INSTALLeXist.txt : 
 * Documentation and notes on installing the Ckeditor with TEI-Ann as a plugin in the oXygen and eXist backend framework. 
 
 INSTALL_NoeXist.txt :
 * Documentation on installing Ckeditor and TEI-Ann using the README file included in the downloaded .tar file from 
 the TEI-Ann page in SourceForge
-----
+
 Thoughts on the process of developing a TEI Editor using Ckeditor and TEI-Ann
+---
 
 Simple pro/con list:
 * Pros
