@@ -15,6 +15,28 @@ INSTALL_NoeXist.txt :
 * Documentation on installing Ckeditor and TEI-Ann using the README file included in the downloaded .tar file from 
 the TEI-Ann page in SourceForge
 
+Specifications for the Tool
+---
+* Validation of Markup based on TEI Lite Specifications
+	* This validation should be done in an efficient and non-intrusive way,
+	e.g.: oXygen
+* Connected to Freebase or other Name Authority Repository
+	* Repository shows up in a side window
+	* Tree structure of named authorities shows up on side panel
+	to illustrate to the user the name authorities they have already
+	inserted.
+* Code Completion is available in the toolbar as a drop-down
+	* Ideal would be having code completion or code guessing available as the 
+	user is typing and to have either a tree structure of possible elements on the 
+	sidebar to select from, or to have a dropdown of possible elements
+* Texts/XML/Manuscripts/Database Data is loaded from an external location and automatically
+parsed into a readable format by the editor.
+	* Example: User A has a document hamlet.xml that is marked up in TEI Lite. User A loads 
+	the document into TEI-Ann, which then sends the document and parses it such that 
+	all of the taxonomies, named authorities, and XML elements are sorted in an 
+	efficient 'view' of the text.
+
+
 Thoughts on the process of developing a TEI Editor using Ckeditor and TEI-Ann
 ---
 
